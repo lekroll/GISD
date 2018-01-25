@@ -1,3 +1,7 @@
 theme: jekyll-theme-slate
 title: GISD - The German Index of Socioeconomic Deprivation
 description: This repository contains regularly updated data of the The German Index of Socioeconomic Deprivation (GISD). 
+navbar:
+  left:
+    - text: "Home"
+      href: index.html

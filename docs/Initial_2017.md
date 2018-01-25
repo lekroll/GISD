@@ -2,6 +2,8 @@
 layout: default
 title: Original GISD values
 ---
+[<back](index)
+
 GISD was created in 2017. The Reference Date for all Regional Definitions ("Gebietsstand") was 31.12.2012. The files are also hosted at [GESIS](https://datorium.gesis.org/xmlui/handle/10.7802/1460). The Reference Paper can be accessed [here](http://edoc.rki.de/docviews/abstract.php?lang=ger&id=5130).
 
 ## Contents

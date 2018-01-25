@@ -31,4 +31,4 @@ GISD was updated for 2018 as of 25.01.2018. The Reference Date for all Regional 
    Groups based on the Quintiles of GISD (1= 1th Quintile, 2= 2th to 4th Quintile, 3= 5th Quintile) with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
 
 # Download
-[Link to the files of the 2018 Update](https://github.com/lekroll/GISD/tree/master/Revisions/2018)
+[Files of the 2018 Update](https://github.com/lekroll/GISD/tree/master/Revisions/2018)

@@ -16,7 +16,7 @@ This index is intended for use in research as well as by federal and federal sta
 Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048)
 
 # License
+[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de)
 
 # Last Update
 Date: 12.5.2017, Author: L. E. Kroll
-

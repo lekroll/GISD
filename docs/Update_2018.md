@@ -2,7 +2,7 @@
 layout: default
 title: Info on GISD Revision 2018
 ---
-GISD was updated for 2018 as of 25.01.2018. The Reference Date for all Regional Definitions ("Gebietsstand") is 31.12.2014. The update includes data for Years 1998 to 2014.
+GISD was updated for 2018 as of 25.01.2018. The Reference Date for all Regional Definitions ("Gebietsstand") is 31.12.2014. The update includes data for Years 1998 to 2014. The Reference Paper can be accessed [here](http://edoc.rki.de/docviews/abstract.php?lang=ger&id=5130).
 
 ## Changes
 * We changed the definition of the Educational Component to be also based on factor analysis. Now, it is defined by the following z-standardized proportions: 

@@ -1,4 +1,4 @@
-# Info
+# Info on GISD Revision 2018
 This directory contains the updated GISD for 2018 as of 25.01.2018. The Reference Date for all Regional Definitions ("Gebietsstand") is 31.12.2014.
 
 ## Changes

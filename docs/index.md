@@ -1,9 +1,3 @@
----
-layout: page
-title: GISD 
-tagline: German Index of Socioeconomic Deprivation
-description: Download Archive for Revisions of the German Index of Socioeconomic Deprivation
----
 # Contents
 This repository contains data of the The German Index of Socioeconomic Deprivation (GISD). With GISD our aims were  to  develop  a  regional  socioeconomic  deprivation  index  for  Germany that (1) can be used to analyse regional socioeconomic inequalities in health and (2) provides a basis for explaining regional health differences in Germany. 
 

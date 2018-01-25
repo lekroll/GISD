@@ -18,7 +18,11 @@ Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health dif
 [Import to Reference Manager](http://edoc.rki.de/docviews/endnote.php?id=5130)
 
 ## License
-[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de)
+[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de). 
+
+## Disclaimer
+This work was funded by the Robert Koch Institute ([RKI](https://www.rki.de/EN)). The Robert Koch Institute is a Federal Institute 
+within the portfolio of the Federal Ministry of Health.
 
 ## Last Update
 Date: 25.01.2017, Author: L. E. Kroll

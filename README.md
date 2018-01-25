@@ -15,3 +15,6 @@ The core data stem from the [INKAR](www.inkar.de) (indicators and maps on spatia
 It is generated at the levels of associations of municipalities, administrative districts and administrative regions.The  German  Index  of  Socioeconomic  Deprivation  illustrates  regional  socioeconomic  differences  at  different  spatial levels and contributes to explaining regional health differences. 
 
 This index is intended for use in research as well as by federal and federal state health reporting systems and should enable access to new sources of data for investigating the links between social inequalities and health in Germany.
+
+# Available data
+* Initial GISD Revision (2017) [Archive](https://github.com/lekroll/GISD/tree/master/Revisions/2017)

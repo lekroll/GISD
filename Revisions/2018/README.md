@@ -2,13 +2,13 @@
 This directory contains the updated GISD for 2018 as of 25.01.2018. 
 
 # Contents
-* Bund: GISD for levels Gemeinde (values are based on Gemeindeverband), Gemeindeverband, Kreis, Raumordnungsregion, NUTS2
-* Bundesland: GISD for levels Gemeindeverband and Kreis for all States except Berlin, Bremen and Hamburg with Quantiles referencing inner state disparities.
+* **Bund** GISD for levels Gemeinde (values are based on Gemeindeverband), Gemeindeverband, Kreis, Raumordnungsregion, NUTS2
+* **Bundesland** GISD for levels Gemeindeverband and Kreis for all States except Berlin, Bremen and Hamburg with Quantiles referencing inner state disparities.
 * Variables: 
-  * **GISD_Score**: Raw Scores of GISD normalized for each Year (Jahr)** 
-  * **GISD_5**: Quintiles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
-  * **GISD_10**: Deciles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
-  * **GISD_k**: Groups based on the Quintiles of GISD (1= 1th Quintile, 2= 2th to 4th Quintile, 3= 5th Quintile) with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
+  * **GISD_Score** Raw Scores of GISD normalized for each Year (Jahr)** 
+  * **GISD_5** Quintiles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
+  * **GISD_10** Deciles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
+  * **GISD_k** Groups based on the Quintiles of GISD (1= 1th Quintile, 2= 2th to 4th Quintile, 3= 5th Quintile) with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
 
 # Changes
 * We changed the definition of the Educational Component to be also based on factor analysis. Now, it is defined by the following z-standardized proportions: 

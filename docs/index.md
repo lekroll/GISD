@@ -13,7 +13,7 @@ This index is intended for use in research as well as by federal and federal sta
 * [GISD Revision (2017)](Initial_2017)
 
 ## How to cite GISD
-Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048)
+Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048) [Import to Reference Manager](http://edoc.rki.de/docviews/endnote.php?id=5130)
 
 ## License
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de)

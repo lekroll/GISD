@@ -19,12 +19,12 @@ This directory contains the updated GISD for 2018 as of 25.01.2018.
 
 ## Variables
   * **GISD_Score** 
-   Raw Scores of GISD normalized for each Year (Jahr)** 
-  * **GISD_5** 
-   Quintiles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
-  * **GISD_10** 
-   Deciles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
-  * **GISD_k** 
+    Raw Scores of GISD normalized for each Year (Jahr) 
+  * **GISD_5**
+    Quintiles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
+  * **GISD_10**
+    Deciles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
+  * **GISD_k**
    Groups based on the Quintiles of GISD (1= 1th Quintile, 2= 2th to 4th Quintile, 3= 5th Quintile) with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
 
 

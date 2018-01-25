@@ -19,4 +19,4 @@ Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health dif
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de)
 
 ## Last Update
-Date: 12.5.2017, Author: L. E. Kroll
+Date: 25.01.2017, Author: L. E. Kroll

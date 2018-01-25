@@ -1,9 +1,8 @@
 # German Index of Socioeconomic Deprivation (GISD)
-Stand: 12.5.2017, Author: L. E. Kroll
+Date: 12.5.2017, Author: L. E. Kroll
 
 ### Citation
-Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic  
-deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048)
+Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048)
 
 # Contents
 This repository contains data of the The German Index of Socioeconomic Deprivation (GISD). With GISD our aims were  to  develop  a  regional  socioeconomic  deprivation  index  for  Germany that (1) can be used to analyse regional socioeconomic inequalities in health and (2) provides a basis for explaining regional health differences in Germany. 

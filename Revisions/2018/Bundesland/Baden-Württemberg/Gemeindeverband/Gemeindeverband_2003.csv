@@ -1,0 +1,461 @@
+"","Kennziffer Gemeindeverband","Name Gemeindeverband","Bevölkerung","GISD_Score","GISD_5","GISD_10","GISD_k"
+"1",8111000,"Stuttgart, Landeshauptstadt",612441,0.214454,1,1,1
+"2",8115003,"Böblingen, Stadt",47385,0.215028,1,1,1
+"3",8115028,"Leonberg, Stadt",46143,0.216227,1,1,1
+"4",8115029,"Magstadt",9083,0.205526,1,1,1
+"5",8115041,"Renningen, Stadt",16878,0.219224,1,1,1
+"6",8115042,"Rutesheim, Stadt",10493,0.223818,1,1,1
+"7",8115044,"Schönaich",9901,0.217442,1,1,1
+"8",8115045,"Sindelfingen, Stadt",62215,0.222656,1,1,1
+"9",8115050,"Weil der Stadt, Stadt",18500,0.229913,1,1,1
+"10",8115051,"Weil im Schönbuch",9766,0.227395,1,1,1
+"11",8115052,"Weissach",7463,0.205642,1,1,1
+"12",8115901,"GVV Aidlingen/Grafenau",15366,0.206257,1,1,1
+"13",8115902,"GVV Gärtringen/Ehningen",20202,0.212876,1,1,1
+"14",8115903,"VVG der Stadt Herrenberg",39338,0.234274,1,1,1
+"15",8115904,"GVV Holzgerlingen",20652,0.210467,1,1,1
+"16",8115905,"GVV Oberes Gäu",26183,0.241807,1,1,1
+"17",8115906,"GVV Waldenbuch/Steinenbronn",14711,0.216218,1,1,1
+"18",8116015,"Denkendorf",10588,0.252056,1,1,1
+"19",8116019,"Esslingen am Neckar, Stadt",90378,0.288262,1,2,1
+"20",8116047,"Neuhausen auf den Fildern",11583,0.237422,1,1,1
+"21",8116072,"Wernau (Neckar), Stadt",12200,0.269983,1,1,1
+"22",8116076,"Aichwald",7460,0.230219,1,1,1
+"23",8116077,"Filderstadt, Stadt",44721,0.240481,1,1,1
+"24",8116078,"Leinfelden-Echterdingen, Stadt",38266,0.242129,1,1,1
+"25",8116080,"Ostfildern, Stadt",37785,0.254557,1,1,1
+"26",8116081,"Aichtal, Stadt",9665,0.261479,1,1,1
+"27",8116901,"VVG der Stadt Kirchheim unter Teck",48858,0.289643,1,2,1
+"28",8116902,"GVV Lenningen",13455,0.277508,1,1,1
+"29",8116903,"GVV Neckartenzlingen",18957,0.266587,1,1,1
+"30",8116904,"VVG der Stadt Neuffen",11880,0.275958,1,1,1
+"31",8116905,"VVG der Stadt Nürtingen",69354,0.285458,1,2,1
+"32",8116906,"GVV Plochingen",26503,0.26798,1,1,1
+"33",8116907,"GVV Reichenbach an der Fils",20951,0.255004,1,1,1
+"34",8116908,"VVG der Stadt Weilheim an der Teck",18873,0.274335,1,1,1
+"35",8116909,"GVV Wendlingen am Neckar",25302,0.272084,1,1,1
+"36",8117010,"Böhmenkirch",5484,0.433916,3,6,2
+"37",8117901,"VVG der Gemeinde Deggingen",8867,0.436346,3,6,2
+"38",8117902,"VVG der Stadt Ebersbach an der Fils",19135,0.419006,3,6,2
+"39",8117903,"GVV Eislingen-Ottenbach-Salach",30315,0.435403,3,6,2
+"40",8117904,"VVG der Stadt Geislingen an der Steige",35956,0.458771,4,7,2
+"41",8117905,"VVG der Stadt Göppingen",64428,0.453485,4,7,2
+"42",8117906,"GVV Mittleres Fils-Lautertal",27495,0.431946,3,6,2
+"43",8117907,"GVV Oberes Filstal",6401,0.431448,3,6,2
+"44",8117908,"GVV Östlicher Schurwald",10923,0.414249,3,6,2
+"45",8117909,"GVV Raum Bad Boll",15777,0.411252,3,5,2
+"46",8117910,"VVG der Stadt Uhingen",18173,0.418201,3,6,2
+"47",8117911,"GVV Voralb",7163,0.41519,3,6,2
+"48",8118003,"Asperg, Stadt",13065,0.283033,1,2,1
+"49",8118011,"Ditzingen, Stadt",24427,0.245649,1,1,1
+"50",8118019,"Gerlingen, Stadt",19151,0.233281,1,1,1
+"51",8118021,"Großbottwar, Stadt",8253,0.301685,1,2,1
+"52",8118046,"Kornwestheim, Stadt",32680,0.281431,1,1,1
+"53",8118048,"Ludwigsburg, Stadt",91116,0.307322,1,2,1
+"54",8118050,"Markgröningen, Stadt",14426,0.262092,1,1,1
+"55",8118051,"Möglingen",10983,0.261074,1,1,1
+"56",8118060,"Oberstenfeld",7877,0.292876,1,2,1
+"57",8118076,"Sachsenheim, Stadt",17861,0.289077,1,2,1
+"58",8118080,"Korntal-Münchingen, Stadt",18701,0.250041,1,1,1
+"59",8118081,"Remseck am Neckar, Stadt",25042,0.266409,1,1,1
+"60",8118901,"GVV Besigheim",32606,0.280889,1,1,1
+"61",8118902,"VVG der Stadt Bietigheim-Bissingen",61122,0.274801,1,1,1
+"62",8118903,"GVV Bönnigheim",15505,0.307973,1,2,1
+"63",8118904,"VVG der Stadt Freiberg am Neckar",21948,0.257819,1,1,1
+"64",8118905,"GVV Marbach am Neckar",30676,0.268536,1,1,1
+"65",8118906,"GVV Schwieberdingen-Hemmingen",18668,0.246189,1,1,1
+"66",8118907,"GVV Steinheim-Murr",18365,0.276422,1,1,1
+"67",8118908,"VVG der Stadt Vaihingen an der Enz",43905,0.28254,1,2,1
+"68",8119001,"Alfdorf",7053,0.376507,2,4,2
+"69",8119020,"Fellbach, Stadt",44611,0.335319,1,2,1
+"70",8119041,"Korb",10305,0.326548,1,2,1
+"71",8119044,"Murrhardt, Stadt",13656,0.409562,3,5,2
+"72",8119061,"Rudersberg",11113,0.376773,2,4,2
+"73",8119079,"Waiblingen, Stadt",53407,0.343748,1,2,1
+"74",8119089,"Berglen",6067,0.337989,1,2,1
+"75",8119090,"Remshalden",13630,0.323389,1,2,1
+"76",8119091,"Weinstadt, Stadt",26373,0.329512,1,2,1
+"77",8119093,"Kernen im Remstal",15041,0.342913,1,2,1
+"78",8119901,"VVG der Stadt Backnang",77170,0.380731,2,4,2
+"79",8119902,"GVV Plüderhausen-Urbach",17996,0.356694,2,3,2
+"80",8119903,"VVG der Stadt Schorndorf",46265,0.355159,2,3,2
+"81",8119904,"GVV Sulzbach",9791,0.41764,3,6,2
+"82",8119905,"VVG der Stadt Welzheim",13467,0.396985,3,5,2
+"83",8119906,"GVV Winnenden",48071,0.343847,1,2,1
+"84",8121000,"Heilbronn, Stadt",119841,0.549979,5,10,3
+"85",8125007,"Bad Wimpfen, Stadt",6848,0.397652,3,5,2
+"86",8125039,"Gundelsheim, Stadt",7148,0.38869,2,4,2
+"87",8125058,"Leingarten",11092,0.361754,2,3,2
+"88",8125068,"Neudenau, Stadt",5079,0.382782,2,4,2
+"89",8125107,"Wüstenrot",6665,0.415873,3,6,2
+"90",8125901,"VVG der Stadt Bad Friedrichshall",27462,0.411494,3,6,2
+"91",8125902,"VVG der Stadt Bad Rappenau",27529,0.411213,3,5,2
+"92",8125903,"VVG der Stadt Brackenheim",18038,0.395135,3,5,2
+"93",8125904,"VVG der Stadt Eppingen",28517,0.422806,3,6,2
+"94",8125905,"GVV Flein-Talheim",11728,0.365274,2,3,2
+"95",8125906,"VVG der Stadt Lauffen am Neckar",22419,0.379976,2,4,2
+"96",8125907,"VVG der Stadt Möckmühl",12797,0.436029,3,6,2
+"97",8125908,"VVG der Stadt Neckarsulm",34853,0.384842,2,4,2
+"98",8125909,"VVG der Stadt Neuenstadt am Kocher",17234,0.384686,2,4,2
+"99",8125910,"GVV Oberes Zabergäu",12302,0.411108,3,5,2
+"100",8125911,"VVG der Gemeinde Obersulm",16644,0.405594,3,5,2
+"101",8125912,"GVV Schozach-Bottwartal",27927,0.372533,2,4,2
+"102",8125913,"VVG der Stadt Schwaigern",14441,0.403894,3,5,2
+"103",8125914,"GVV Raum Weinsberg",20527,0.397037,3,5,2
+"104",8126011,"Bretzfeld",12307,0.43313,3,6,2
+"105",8126072,"Schöntal",5541,0.415435,3,6,2
+"106",8126901,"GVV Hohenloher Ebene",15219,0.445169,4,7,2
+"107",8126902,"GVV Krautheim",10679,0.443961,3,6,2
+"108",8126903,"VVG der Stadt Künzelsau",20458,0.452472,4,7,2
+"109",8126904,"GVV Mittleres Kochertal",10886,0.429231,3,6,2
+"110",8126905,"VVG der Stadt Öhringen",33726,0.459507,4,7,2
+"111",8127008,"Blaufelden",5174,0.487371,4,8,2
+"112",8127052,"Mainhardt",5864,0.481658,4,8,2
+"113",8127075,"Schrozberg, Stadt",5669,0.505654,5,9,3
+"114",8127901,"GVV Braunsbach-Untermünkheim",5342,0.46691,4,7,2
+"115",8127902,"VVG der Stadt Crailsheim",46246,0.48685,4,8,2
+"116",8127903,"GVV Fichtenau",8414,0.504458,5,9,3
+"117",8127904,"VVG der Stadt Gerabronn",5912,0.490698,5,9,3
+"118",8127905,"GVV Ilshofen-Vellberg",12632,0.494687,5,9,3
+"119",8127906,"GVV Limpurger Land",20989,0.474689,4,8,2
+"120",8127907,"GVV Oberes Bühlertal",9750,0.484847,4,8,2
+"121",8127908,"GVV Brettach/Jagst",12862,0.504862,5,9,3
+"122",8127909,"VVG der Stadt Schwäbisch Hall",50120,0.487897,4,8,2
+"123",8128020,"Creglingen, Stadt",4708,0.488,5,9,3
+"124",8128039,"Freudenberg, Stadt",3760,0.467704,4,7,2
+"125",8128064,"Külsheim, Stadt",5234,0.502277,5,9,3
+"126",8128082,"Niederstetten, Stadt",4868,0.503614,5,9,3
+"127",8128126,"Weikersheim, Stadt",7288,0.493551,5,9,3
+"128",8128131,"Wertheim, Stadt",22461,0.505475,5,9,3
+"129",8128139,"Lauda-Königshofen, Stadt",14443,0.499536,5,9,3
+"130",8128901,"VVG der Stadt Bad Mergentheim",30459,0.488623,5,9,3
+"131",8128902,"VVG der Stadt Boxberg",8709,0.483952,4,8,2
+"132",8128903,"VVG der Stadt Grünsfeld",5267,0.480515,4,8,2
+"133",8128904,"VVG der Stadt Tauberbischofsheim",23102,0.476885,4,8,2
+"134",8135010,"Dischingen",4361,0.389891,2,4,2
+"135",8135015,"Gerstetten",11601,0.388901,2,4,2
+"136",8135020,"Herbrechtingen, Stadt",12890,0.377318,2,4,2
+"137",8135025,"Königsbronn",7086,0.377164,2,4,2
+"138",8135032,"Steinheim am Albuch",8465,0.377941,2,4,2
+"139",8135901,"VVG der Stadt Giengen an der Brenz",21279,0.425934,3,6,2
+"140",8135902,"VVG der Stadt Heidenheim an der Brenz",53259,0.417697,3,6,2
+"141",8135903,"GVV Sontheim-Niederstotzingen",9953,0.383247,2,4,2
+"142",8136002,"Abtsgmünd",7341,0.392699,3,5,2
+"143",8136027,"Gschwend",4893,0.410773,3,5,2
+"144",8136042,"Lorch, Stadt",10607,0.401515,3,5,2
+"145",8136045,"Neresheim, Stadt",7912,0.408919,3,5,2
+"146",8136050,"Oberkochen, Stadt",7814,0.395069,3,5,2
+"147",8136901,"VVG der Stadt Aalen",79524,0.396865,3,5,2
+"148",8136902,"VVG der Stadt Bopfingen",15963,0.447169,4,7,2
+"149",8136903,"VVG der Stadt Ellwangen (Jagst)",39735,0.414051,3,6,2
+"150",8136904,"GVV Kapfenburg",10628,0.393835,3,5,2
+"151",8136905,"GVV Leintal-Frickenhofer Höhe",11465,0.399727,3,5,2
+"152",8136906,"GVV Rosenstein",22232,0.397902,3,5,2
+"153",8136907,"VVG der Stadt Schwäbisch Gmünd",66237,0.43317,3,6,2
+"154",8136908,"GVV Schwäbischer Wald",15582,0.399075,3,5,2
+"155",8136909,"GVV Tannhausen",8272,0.405446,3,5,2
+"156",8211000,"Baden-Baden, Stadt",53342,0.353151,2,3,2
+"157",8212000,"Karlsruhe, Stadt",300051,0.306578,1,2,1
+"158",8215017,"Ettlingen, Stadt",38861,0.366624,2,3,2
+"159",8215046,"Malsch",14023,0.375118,2,4,2
+"160",8215047,"Marxzell",5047,0.375441,2,4,2
+"161",8215064,"Östringen, Stadt",12562,0.394463,3,5,2
+"162",8215084,"Ubstadt-Weiher",12966,0.388625,2,4,2
+"163",8215089,"Walzbachtal",9483,0.372819,2,4,2
+"164",8215090,"Weingarten (Baden)",10004,0.380619,2,4,2
+"165",8215096,"Karlsbad",15734,0.356089,2,3,2
+"166",8215097,"Kraichtal, Stadt",14576,0.392772,3,5,2
+"167",8215101,"Pfinztal",17601,0.377553,2,4,2
+"168",8215102,"Eggenstein-Leopoldshafen",15930,0.338491,1,2,1
+"169",8215105,"Linkenheim-Hochstetten",11693,0.378097,2,4,2
+"170",8215106,"Waghäusel, Stadt",20378,0.40207,3,5,2
+"171",8215108,"Rheinstetten, Stadt",20279,0.371205,2,3,2
+"172",8215109,"Stutensee, Stadt",23829,0.388484,2,4,2
+"173",8215110,"Waldbronn",12251,0.341927,1,2,1
+"174",8215901,"VVG der Gemeinde Bad Schönborn",18239,0.389449,2,4,2
+"175",8215902,"VVG der Stadt Bretten",32120,0.393111,3,5,2
+"176",8215903,"VVG der Stadt Bruchsal",66507,0.391553,3,5,2
+"177",8215904,"VVG der Gemeinde Graben-Neudorf",18044,0.384149,2,4,2
+"178",8215905,"VVG der Gemeinde Oberderdingen",12713,0.397127,3,5,2
+"179",8215906,"GVV Philippsburg",22127,0.403488,3,5,2
+"180",8215907,"VVG der Gemeinde Sulzfeld",6348,0.390093,3,5,2
+"181",8216008,"Bühlertal",7936,0.383548,2,4,2
+"182",8216013,"Forbach",4787,0.42798,3,6,2
+"183",8216015,"Gaggenau, Stadt",28633,0.401087,3,5,2
+"184",8216901,"GVV Nachbarschaftsverband Bischweier-Kuppenheim",11079,0.411182,3,5,2
+"185",8216902,"VVG der Stadt Bühl",34806,0.414675,3,6,2
+"186",8216903,"GVV Durmersheim",24742,0.422045,3,6,2
+"187",8216904,"VVG der Stadt Gernsbach",18953,0.419999,3,6,2
+"188",8216905,"VVG der Stadt Rastatt",66063,0.444333,3,6,2
+"189",8216906,"GVV Rheinmünster-Lichtenau",11634,0.421257,3,6,2
+"190",8216907,"VVG der Gemeinde Sinzheim",16054,0.412331,3,6,2
+"191",8221000,"Heidelberg, Stadt",154715,0.182723,1,1,1
+"192",8222000,"Mannheim, Universitätsstadt",299844,0.508797,5,9,3
+"193",8225014,"Buchen (Odenwald), Stadt",17571,0.59258,5,10,3
+"194",8225060,"Mudau",4828,0.57525,5,10,3
+"195",8225901,"GVV Hardheim-Walldürn",21136,0.591143,5,10,3
+"196",8225902,"VVG der Gemeinde Haßmersheim",6889,0.559316,5,10,3
+"197",8225903,"GVV Kleiner Odenwald",9514,0.586275,5,10,3
+"198",8225904,"VVG der Gemeinde Limbach",7179,0.5542,5,10,3
+"199",8225905,"VVG der Stadt Mosbach",35298,0.582665,5,10,3
+"200",8225906,"GVV Neckargerach-Waldbrunn",9032,0.553303,5,10,3
+"201",8225907,"GVV Osterburken",11356,0.570399,5,10,3
+"202",8225908,"GVV Schefflenztal",9851,0.552427,5,10,3
+"203",8225909,"GVV Seckachtal",8997,0.602602,5,10,3
+"204",8226009,"Brühl",13786,0.341019,1,2,1
+"205",8226012,"Dossenheim",12229,0.343931,1,2,1
+"206",8226018,"Eppelheim, Stadt",15112,0.359459,2,3,2
+"207",8226028,"Heddesheim",11154,0.332874,1,2,1
+"208",8226036,"Ilvesheim",9008,0.344862,1,2,1
+"209",8226037,"Ketsch",12619,0.356349,2,3,2
+"210",8226038,"Ladenburg, Stadt",11380,0.347927,2,3,2
+"211",8226041,"Leimen, Stadt",26097,0.384554,2,4,2
+"212",8226060,"Nußloch",10770,0.349168,2,3,2
+"213",8226062,"Oftersheim",11878,0.348225,2,3,2
+"214",8226063,"Plankstadt",10160,0.357851,2,3,2
+"215",8226076,"Sandhausen",14672,0.331698,1,2,1
+"216",8226082,"Schriesheim, Stadt",14812,0.340293,1,2,1
+"217",8226084,"Schwetzingen, Stadt",21494,0.368851,2,3,2
+"218",8226095,"Walldorf, Stadt",14997,0.352929,2,3,2
+"219",8226096,"Weinheim, Stadt",43892,0.367084,2,3,2
+"220",8226103,"St. Leon-Rot",13403,0.346293,1,2,1
+"221",8226105,"Edingen-Neckarhausen",13709,0.376633,2,4,2
+"222",8226107,"Hirschberg an der Bergstraße",9582,0.331403,1,2,1
+"223",8226901,"VVG der Stadt Eberbach",17331,0.390085,2,4,2
+"224",8226902,"GVV Elsenztal",15689,0.371291,2,3,2
+"225",8226903,"VVG der Stadt Hemsbach",18011,0.34973,2,3,2
+"226",8226904,"VVG der Stadt Hockenheim",40678,0.370142,2,3,2
+"227",8226905,"GVV Neckargemünd",25125,0.379033,2,4,2
+"228",8226906,"GVV Rauenberg",20343,0.347497,2,3,2
+"229",8226907,"GVV Schönau",10585,0.380363,2,4,2
+"230",8226908,"VVG der Stadt Sinsheim",41990,0.383872,2,4,2
+"231",8226909,"GVV Waibstadt",19812,0.386864,2,4,2
+"232",8226910,"VVG der Stadt Wiesloch",34411,0.36775,2,3,2
+"233",8231000,"Pforzheim, Stadt",119291,0.615605,5,10,3
+"234",8235065,"Schömberg",7987,0.529642,5,10,3
+"235",8235080,"Wildberg, Stadt",9678,0.44265,3,6,2
+"236",8235901,"VVG der Stadt Altensteig",14263,0.507285,5,9,3
+"237",8235902,"GVV Althengstett",16721,0.436604,3,6,2
+"238",8235903,"VVG der Stadt Bad Herrenalb",9633,0.498555,5,9,3
+"239",8235904,"VVG der Stadt Bad Liebenzell",11193,0.487425,4,8,2
+"240",8235905,"GVV Teinachtal",11595,0.478909,4,8,2
+"241",8235906,"VVG der Stadt Calw",25348,0.480497,4,8,2
+"242",8235907,"VVG der Stadt Nagold",33868,0.478224,4,8,2
+"243",8235908,"VVG der Stadt Bad Wildbad",12480,0.497696,5,9,3
+"244",8236004,"Birkenfeld",10158,0.361072,2,3,2
+"245",8236028,"Illingen",7321,0.333643,1,2,1
+"246",8236030,"Ispringen",5962,0.352127,2,3,2
+"247",8236033,"Knittlingen, Stadt",7946,0.371621,2,3,2
+"248",8236046,"Niefern-Öschelbronn",11830,0.355064,2,3,2
+"249",8236070,"Keltern",9043,0.359703,2,3,2
+"250",8236071,"Remchingen",11673,0.372532,2,3,2
+"251",8236072,"Straubenhardt",10829,0.364473,2,3,2
+"252",8236901,"GVV Heckengäu",24024,0.346987,2,3,2
+"253",8236902,"GVV Kämpfelbachtal",20719,0.353204,2,3,2
+"254",8236903,"VVG der Stadt Maulbronn",9079,0.377499,2,4,2
+"255",8236904,"VVG der Stadt Mühlacker",29858,0.377889,2,4,2
+"256",8236905,"VVG der Stadt Neuenbürg",11999,0.356604,2,3,2
+"257",8236906,"GVV Neulingen",12928,0.352768,2,3,2
+"258",8236907,"GVV Tiefenbronn",10359,0.356818,2,3,2
+"259",8237002,"Alpirsbach, Stadt",6349,0.467068,4,7,2
+"260",8237004,"Baiersbronn",14500,0.478358,4,8,2
+"261",8237045,"Loßburg",7406,0.447877,4,7,2
+"262",8237901,"GVV Dornstetten",18651,0.450585,4,7,2
+"263",8237902,"VVG der Stadt Freudenstadt",26526,0.493007,5,9,3
+"264",8237903,"VVG der Stadt Horb am Neckar",33810,0.456182,4,7,2
+"265",8237905,"VVG der Gemeinde Pfalzgrafenweiler",7905,0.469683,4,7,2
+"266",8311000,"Freiburg im Breisgau, Stadt",222203,0.398347,3,5,2
+"267",8315068,"Lenzkirch",4904,0.464906,4,7,2
+"268",8315076,"Neuenburg am Rhein, Stadt",11984,0.488289,5,9,3
+"269",8315133,"Vogtsburg im Kaiserstuhl, Stadt",5853,0.464997,4,7,2
+"270",8315901,"VVG der Stadt Bad Krozingen",22509,0.475654,4,8,2
+"271",8315902,"VVG der Stadt Breisach am Rhein",23210,0.477513,4,8,2
+"272",8315903,"GVV Dreisamtal",20103,0.460699,4,7,2
+"273",8315904,"VVG der Gemeinde Ehrenkirchen",9454,0.451364,4,7,2
+"274",8315905,"VVG der Gemeinde Gundelfingen",12448,0.437623,3,6,2
+"275",8315906,"VVG der Stadt Heitersheim",10790,0.479411,4,8,2
+"276",8315907,"GVV Hexental",10348,0.465368,4,7,2
+"277",8315908,"VVG der Gemeinde Hinterzarten",4210,0.505231,5,9,3
+"278",8315909,"GVV Kaiserstuhl-Tuniberg",11557,0.444684,4,7,2
+"279",8315910,"VVG der Stadt Löffingen",9422,0.476214,4,8,2
+"280",8315911,"GVV March-Umkirch",14115,0.437904,3,6,2
+"281",8315912,"GVV Müllheim-Badenweiler",31854,0.494933,5,9,3
+"282",8315913,"GVV St. Peter",7553,0.455588,4,7,2
+"283",8315914,"VVG der Gemeinde Schallstadt",11357,0.443951,3,6,2
+"284",8315915,"VVG der Gemeinde Schluchsee",4333,0.489003,5,9,3
+"285",8315916,"GVV Staufen-Münstertal",12741,0.479215,4,8,2
+"286",8315917,"VVG der Stadt Titisee-Neustadt",14004,0.45788,4,7,2
+"287",8316901,"GVV Denzlingen-Vörstetten-Reute",19262,0.463495,4,7,2
+"288",8316902,"GVV Elzach",11649,0.458237,4,7,2
+"289",8316903,"VVG der Stadt Emmendingen",48888,0.482483,4,8,2
+"290",8316904,"GVV Kenzingen-Herbolzheim",25761,0.480774,4,8,2
+"291",8316905,"GVV Nördlicher Kaiserstuhl",25530,0.479193,4,8,2
+"292",8316906,"VVG der Stadt Waldkirch",28618,0.48363,4,8,2
+"293",8317005,"Appenweier",9867,0.477397,4,8,2
+"294",8317031,"Friesenheim",12621,0.479662,4,8,2
+"295",8317051,"Hornberg, Stadt",4299,0.472446,4,8,2
+"296",8317057,"Kehl, Stadt",34513,0.523194,5,9,3
+"297",8317141,"Willstätt",9490,0.480843,4,8,2
+"298",8317151,"Neuried",9352,0.476111,4,8,2
+"299",8317153,"Rheinau, Stadt",11056,0.475264,4,8,2
+"300",8317901,"VVG der Stadt Achern",36504,0.471415,4,7,2
+"301",8317902,"VVG der Stadt Ettenheim",28487,0.488535,5,9,3
+"302",8317903,"VVG der Stadt Gengenbach",16306,0.491736,5,9,3
+"303",8317904,"VVG der Stadt Haslach im Kinzigtal",16035,0.447393,4,7,2
+"304",8317905,"VVG der Stadt Hausach",7953,0.447878,4,7,2
+"305",8317906,"GVV Kappelrodeck",10368,0.466538,4,7,2
+"306",8317907,"VVG der Stadt Lahr/Schwarzwald",49522,0.523274,5,9,3
+"307",8317908,"GVV Oberes Renchtal",7329,0.476037,4,8,2
+"308",8317909,"VVG der Stadt Oberkirch",28881,0.477892,4,8,2
+"309",8317910,"VVG der Stadt Offenburg",79972,0.504993,5,9,3
+"310",8317911,"VVG der Gemeinde Seelbach",8039,0.4768,4,8,2
+"311",8317912,"VVG der Gemeinde Schwanau",10696,0.472438,4,7,2
+"312",8317913,"VVG der Stadt Wolfach",8396,0.434342,3,6,2
+"313",8317914,"VVG der Stadt Zell am Harmersbach",15953,0.463436,4,7,2
+"314",8325012,"Dornhan, Stadt",5985,0.442685,3,6,2
+"315",8325901,"VVG der Gemeinde Dunningen",8053,0.435647,3,6,2
+"316",8325902,"VVG der Stadt Oberndorf am Neckar",20055,0.45043,4,7,2
+"317",8325903,"VVG der Stadt Rottweil",43330,0.470173,4,7,2
+"318",8325904,"VVG der Stadt Schiltach",5553,0.405359,3,5,2
+"319",8325905,"VVG der Stadt Schramberg",30178,0.443244,3,6,2
+"320",8325906,"VVG der Stadt Sulz am Neckar",16158,0.47427,4,8,2
+"321",8325907,"GVV Villingendorf",6600,0.441389,3,6,2
+"322",8326003,"Bad Dürrheim, Stadt",12775,0.511951,5,9,3
+"323",8326005,"Blumberg, Stadt",9920,0.494728,5,9,3
+"324",8326031,"Königsfeld im Schwarzwald",5853,0.504023,5,9,3
+"325",8326052,"St. Georgen im Schwarzwald, Stadt",12814,0.474559,4,8,2
+"326",8326068,"Vöhrenbach, Stadt",3813,0.478478,4,8,2
+"327",8326901,"GVV Donaueschingen",34722,0.498557,5,9,3
+"328",8326902,"VVG der Stadt Furtwangen im Schwarzwald",10324,0.465369,4,7,2
+"329",8326903,"GVV Raumschaft Triberg",11063,0.473458,4,8,2
+"330",8326904,"VVG der Stadt Villingen-Schwenningen",104832,0.496994,5,9,3
+"331",8327901,"GVV Donau-Heuberg",10494,0.467304,4,7,2
+"332",8327902,"GVV Heuberg",12094,0.469314,4,7,2
+"333",8327903,"GVV Immendingen-Geisingen",12153,0.535523,5,10,3
+"334",8327904,"VVG der Stadt Spaichingen",30284,0.504021,5,9,3
+"335",8327905,"VVG der Stadt Trossingen",18576,0.530826,5,10,3
+"336",8327906,"VVG der Stadt Tuttlingen",51006,0.511194,5,9,3
+"337",8335035,"Hilzingen",8290,0.481686,4,8,2
+"338",8335063,"Radolfzell am Bodensee, Stadt",30485,0.499804,5,9,3
+"339",8335080,"Tengen, Stadt",4501,0.503162,5,9,3
+"340",8335901,"VVG der Stadt Engen",16091,0.488328,5,9,3
+"341",8335902,"VVG der Gemeinde Gottmadingen",14471,0.532547,5,10,3
+"342",8335903,"GVV Höri",10140,0.524337,5,10,3
+"343",8335904,"VVG der Stadt Konstanz",93926,0.529885,5,10,3
+"344",8335905,"VVG der Stadt Singen (Hohentwiel)",65683,0.513332,5,9,3
+"345",8335906,"VVG der Stadt Stockach",32198,0.510964,5,9,3
+"346",8336014,"Efringen-Kirchen",8431,0.52874,5,10,3
+"347",8336084,"Steinen",9790,0.523281,5,9,3
+"348",8336087,"Todtnau, Stadt",4860,0.484777,4,8,2
+"349",8336091,"Weil am Rhein, Stadt",29683,0.562932,5,10,3
+"350",8336105,"Grenzach-Wyhlen",14073,0.52133,5,9,3
+"351",8336107,"Kleines Wiesental",2859,0.507063,5,9,3
+"352",8336901,"VVG der Stadt Kandern",9609,0.545688,5,10,3
+"353",8336903,"VVG der Stadt Lörrach",51035,0.55134,5,10,3
+"354",8336904,"VVG der Stadt Rheinfelden (Baden)",34847,0.519638,5,9,3
+"355",8336905,"VVG der Gemeinde Schliengen",9496,0.549618,5,10,3
+"356",8336906,"GVV Schönau im Schwarzwald",5592,0.487302,4,8,2
+"357",8336907,"VVG der Stadt Schopfheim",26809,0.515845,5,9,3
+"358",8336908,"GVV Vorderes Kandertal",9597,0.515815,5,9,3
+"359",8336909,"VVG der Stadt Zell im Wiesental",7011,0.510717,5,9,3
+"360",8337002,"Albbruck",7185,0.596654,5,10,3
+"361",8337038,"Görwihl",4236,0.588783,5,10,3
+"362",8337062,"Klettgau",7478,0.615313,5,10,3
+"363",8337066,"Laufenburg (Baden), Stadt",8843,0.59186,5,10,3
+"364",8337106,"Stühlingen, Stadt",4956,0.580474,5,10,3
+"365",8337116,"Wehr, Stadt",12591,0.577529,5,10,3
+"366",8337901,"VVG der Stadt Bonndorf im Schwarzwald",8045,0.566998,5,10,3
+"367",8337902,"GVV Jestetten",8283,0.657389,5,10,3
+"368",8337903,"GVV Küssaberg",8999,0.639025,5,10,3
+"369",8337904,"GVV Oberes Schlüchttal",7359,0.614623,5,10,3
+"370",8337905,"VVG der Stadt Bad Säckingen",29842,0.595034,5,10,3
+"371",8337906,"GVV St. Blasien",13098,0.620571,5,10,3
+"372",8337907,"VVG der Stadt Waldshut-Tiengen",36055,0.622721,5,10,3
+"373",8337908,"VVG der Gemeinde Wutöschingen",8241,0.60587,5,10,3
+"374",8415014,"Dettingen an der Erms",9277,0.372057,2,3,2
+"375",8415019,"Eningen unter Achalm",10688,0.386879,2,4,2
+"376",8415059,"Pfullingen, Stadt",17870,0.377663,2,4,2
+"377",8415061,"Reutlingen, Stadt",112452,0.398977,3,5,2
+"378",8415073,"Trochtelfingen, Stadt",6360,0.3872,2,4,2
+"379",8415080,"Wannweil",5185,0.372465,2,3,2
+"380",8415091,"Sonnenbühl",6972,0.347927,2,3,2
+"381",8415092,"Lichtenstein",9145,0.386506,2,4,2
+"382",8415093,"St. Johann",5027,0.357409,2,3,2
+"383",8415901,"VVG der Gemeinde Engstingen",8818,0.390427,3,5,2
+"384",8415902,"VVG der Stadt Metzingen",28245,0.362813,2,3,2
+"385",8415903,"VVG der Stadt Münsingen",17609,0.400906,3,5,2
+"386",8415904,"VVG der Gemeinde Pliezhausen",14274,0.341859,1,2,1
+"387",8415905,"VVG der Stadt Bad Urach",20340,0.371984,2,3,2
+"388",8415906,"GVV Zwiefalten-Hayingen",5769,0.388024,2,4,2
+"389",8416009,"Dettenhausen",5467,0.282652,1,2,1
+"390",8416022,"Kirchentellinsfurt",5556,0.309421,1,2,1
+"391",8416023,"Kusterdingen",8324,0.310033,1,2,1
+"392",8416041,"Tübingen, Universitätsstadt",85871,0.365529,2,3,2
+"393",8416048,"Ammerbuch",11254,0.294982,1,2,1
+"394",8416901,"GVV Steinlach-Wiesaz",18756,0.318962,1,2,1
+"395",8416902,"VVG der Stadt Mössingen",30079,0.340081,1,2,1
+"396",8416903,"VVG der Stadt Rottenburg am Neckar",53048,0.34209,1,2,1
+"397",8417013,"Burladingen, Stadt",12133,0.471416,4,7,2
+"398",8417025,"Haigerloch, Stadt",10444,0.449738,4,7,2
+"399",8417054,"Rosenfeld, Stadt",6370,0.472785,4,8,2
+"400",8417901,"VVG der Stadt Albstadt",47757,0.490231,5,9,3
+"401",8417902,"VVG der Stadt Balingen",39469,0.47928,4,8,2
+"402",8417903,"VVG der Gemeinde Bisingen",11378,0.469074,4,7,2
+"403",8417904,"VVG der Stadt Hechingen",25309,0.47711,4,8,2
+"404",8417905,"VVG der Stadt Meßstetten",14476,0.476507,4,8,2
+"405",8417906,"GVV Oberes Schlichemtal",10215,0.468564,4,7,2
+"406",8417907,"VVG der Gemeinde Winterlingen",8809,0.460388,4,7,2
+"407",8421000,"Ulm, Universitätsstadt",120714,0.312526,1,2,1
+"408",8425039,"Erbach, Stadt",13204,0.380961,2,4,2
+"409",8425108,"Schelklingen, Stadt",6765,0.389194,2,4,2
+"410",8425141,"Blaustein, Stadt",15449,0.371285,2,3,2
+"411",8425901,"VVG der Gemeinde Allmendingen",4938,0.39074,3,5,2
+"412",8425902,"VVG der Stadt Blaubeuren",13819,0.390319,3,5,2
+"413",8425903,"GVV Dietenheim",11922,0.375562,2,4,2
+"414",8425904,"VVG der Gemeinde Dornstadt",13313,0.363635,2,3,2
+"415",8425905,"VVG der Stadt Ehingen (Donau)",30268,0.397313,3,5,2
+"416",8425906,"GVV Kirchberg-Weihungstal",10491,0.360138,2,3,2
+"417",8425907,"GVV Laichinger Alb",20542,0.37737,2,4,2
+"418",8425908,"GVV Langenau",25695,0.391939,3,5,2
+"419",8425909,"GVV Lonsee-Amstetten",8665,0.361152,2,3,2
+"420",8425910,"GVV Verwaltungsgemeinschaft Munderkingen",14058,0.406099,3,5,2
+"421",8426134,"Schemmerhofen",8032,0.392398,3,5,2
+"422",8426901,"GVV Bad Buchau",8330,0.409138,3,5,2
+"423",8426902,"VVG der Stadt Bad Schussenried",11184,0.419584,3,6,2
+"424",8426903,"VVG der Stadt Biberach an der Riß",57784,0.401477,3,5,2
+"425",8426904,"GVV Illertal",13614,0.415815,3,6,2
+"426",8426905,"VVG der Stadt Laupheim",32876,0.385827,2,4,2
+"427",8426906,"VVG der Stadt Ochsenhausen",14301,0.399456,3,5,2
+"428",8426907,"VVG der Stadt Riedlingen",29586,0.432986,3,6,2
+"429",8426908,"GVV Rot-Tannheim",6819,0.410146,3,5,2
+"430",8426909,"VVG der Gemeinde Schwendi",7912,0.385845,2,4,2
+"431",8435035,"Meckenbeuren",13027,0.304946,1,2,1
+"432",8435901,"GVV Eriskirch-Kressbronn am Bodensee-Langenargen",21074,0.319873,1,2,1
+"433",8435902,"VVG der Stadt Friedrichshafen",64717,0.308137,1,2,1
+"434",8435903,"GVV Markdorf",26123,0.30232,1,2,1
+"435",8435904,"GVV Meersburg",17726,0.337352,1,2,1
+"436",8435905,"GVV Salem",17016,0.322318,1,2,1
+"437",8435906,"VVG der Stadt Tettnang",21116,0.310948,1,2,1
+"438",8435907,"VVG der Stadt Überlingen",28587,0.347418,2,3,2
+"439",8436008,"Aulendorf, Stadt",9904,0.480641,4,8,2
+"440",8436010,"Bad Wurzach, Stadt",14316,0.466418,4,7,2
+"441",8436049,"Isny im Allgäu, Stadt",13351,0.47317,4,8,2
+"442",8436052,"Kißlegg",8696,0.45944,4,7,2
+"443",8436094,"Argenbühl",6171,0.452888,4,7,2
+"444",8436901,"GVV Altshausen",11194,0.473014,4,8,2
+"445",8436902,"VVG der Stadt Bad Waldsee",22882,0.447411,4,7,2
+"446",8436903,"GVV Gullen",13089,0.440359,3,6,2
+"447",8436904,"VVG der Stadt Leutkirch im Allgäu",27305,0.451961,4,7,2
+"448",8436905,"GVV Mittleres Schussental",89236,0.441164,3,6,2
+"449",8436906,"VVG der Gemeinde Vogt",8129,0.432451,3,6,2
+"450",8436907,"VVG der Stadt Wangen im Allgäu",32512,0.450105,4,7,2
+"451",8436908,"VVG der Gemeinde Wilhelmsdorf",10008,0.462117,4,7,2
+"452",8436909,"GVV Fronreute-Wolpertswende",8546,0.427286,3,6,2
+"453",8437086,"Ostrach",6704,0.5801,5,10,3
+"454",8437901,"GVV Gammertingen",12050,0.567561,5,10,3
+"455",8437902,"GVV Mengen",16467,0.589523,5,10,3
+"456",8437903,"VVG der Stadt Meßkirch",12772,0.600569,5,10,3
+"457",8437904,"VVG der Stadt Pfullendorf",20959,0.596644,5,10,3
+"458",8437905,"VVG der Stadt Bad Saulgau",21965,0.590782,5,10,3
+"459",8437906,"GVV Sigmaringen",30386,0.59796,5,10,3
+"460",8437907,"VVG der Gemeinde Stetten am kalten Markt",6413,0.561294,5,10,3

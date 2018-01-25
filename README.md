@@ -3,12 +3,12 @@ Stand: 12.5.2017, Author: L. E. Kroll
 
 ### Citation
 Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic  
-deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. URL: https://dx.doi.org/10.17886/RKI-GBE-2017-048 
+deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048)
 
 # Contents
 This repository contains data of the The German Index of Socioeconomic Deprivation (GISD). With GISD our aims were  to  develop  a  regional  socioeconomic  deprivation  index  for  Germany that (1) can be used to analyse regional socioeconomic inequalities in health and (2) provides a basis for explaining regional health differences in Germany. 
 
-Originally GISD was submitted to https://datorium.gesis.org/xmlui/handle/10.7802/1460. But as we plan to update GISD anually with when new data from www.inkar.de is available, it will be hosted as at github.
+Originally GISD was submitted to [GESIS Datorium](https://datorium.gesis.org/xmlui/handle/10.7802/1460). But as we plan to update GISD anually with when new data from www.inkar.de is available, it will be hosted as at github.
 
 # Background
 The core data stem from the INKAR (indicators and maps on spatial and urban development in Germany and Europe) database (www.inkar.de) compiled by Germany’s Federal Institute for Research on Building, Urban Affairs and Spatial Development. Factor analysis is used for indexing and the weighting of indicators for the three dimensions of education, occupation and income. 

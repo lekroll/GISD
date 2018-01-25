@@ -17,7 +17,7 @@ This directory contains the updated GISD for 2018 as of 25.01.2018.
 * **Bundesland** GISD for levels Gemeindeverband and Kreis for all States except Berlin, Bremen and Hamburg with Quantiles referencing inner state disparities.
 * **Files** We provide tables of comma seperated by regional level for each year as well as a Stata _.dta_-file in long format with all years included for each level.
 
-#Variables
+# Variables
   * **GISD_Score** Raw Scores of GISD normalized for each Year (Jahr)** 
   * **GISD_5** Quintiles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)
   * **GISD_10** Deciles of GISD with Reference to Germany (Bund) or to the corresponding state (Bundesland) for each Year (Jahr)

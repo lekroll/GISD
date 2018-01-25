@@ -10,7 +10,9 @@ It is generated at the levels of associations of municipalities, administrative 
 This index is intended for use in research as well as by federal and federal state health reporting systems and should enable access to new sources of data for investigating the links between social inequalities and health in Germany.
 
 # Available data
-* Initial GISD Revision (2017) [Archive](https://github.com/lekroll/GISD/tree/master/Revisions/2017)
+* [GISD Revision (2018)](https://github.com/lekroll/GISD/blob/master/Revisions/2017/README.md)
+* [GISD Revision (2017)](https://github.com/lekroll/GISD/tree/master/Revisions/2017)
+
 
 # How to Cite
 Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health differences – developing a socioeconomic deprivation index for German. Journal of Health Monitoring 2017 2(2). Robert Koch Institute, Berlin. [Download](https://dx.doi.org/10.17886/RKI-GBE-2017-048)

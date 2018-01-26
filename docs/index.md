@@ -30,4 +30,4 @@ This work was funded by the Robert Koch Institute ([RKI](https://www.rki.de/EN))
 within the portfolio of the Federal Ministry of Health.
 
 ## Last Update
-Date: 25.01.2017, Author: L. E. Kroll
+Date: 26.01.2017, Author: L. E. Kroll

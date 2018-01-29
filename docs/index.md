@@ -1,6 +1,6 @@
 This repository contains data of the The German Index of Socioeconomic Deprivation (GISD). With GISD our aims were  to  develop  a  regional  socioeconomic  deprivation  index  for  Germany that (1) can be used to analyse regional socioeconomic inequalities in health and (2) provides a basis for explaining regional health differences in Germany. 
 
-Originally GISD was submitted to [GESIS Datorium](https://datorium.gesis.org/xmlui/handle/10.7802/1460). But as we plan to update GISD anually when new data from www.inkar.de is available, it will be hosted as at github.
+Originally GISD was submitted to [GESIS Datorium](https://datorium.gesis.org/xmlui/handle/10.7802/1460). But as we plan to update GISD anually when new data from www.inkar.de is available, it will be hosted at github.
 
 If you need help with GISD please feel free to [contact us](https://www.rki.de/SharedDocs/Kontaktformulare/K/Kroll_Lars_Eric/Integrator.html) or just file an [Issue at GitHub](https://github.com/lekroll/GISD/issues).
 
@@ -26,8 +26,7 @@ Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health dif
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de). 
 
 ## Disclaimer
-This work was funded by the Robert Koch Institute ([RKI](https://www.rki.de/EN)). The Robert Koch Institute is a Federal Institute 
-within the portfolio of the Federal Ministry of Health.
+This work was funded by the Robert Koch Institute ([RKI](https://www.rki.de/EN)). The Robert Koch Institute is a Federal Institute within the portfolio of the Federal Ministry of Health.
 
 ## Last Update
 Date: 26.01.2017, Author: L. E. Kroll

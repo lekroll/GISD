@@ -11,7 +11,7 @@ GISD was updated for 2018 as of 25.01.2018. The Reference Date for all Regional 
   * *School leavers with German "Abitur" or equivalent*
   * *School leavers without a degree*
   * *Employees at place of residence with university degree*
-  * *Employees at place of residence with university degree*
+  * *Employees at place of residence without any degree*
 * The whole code was rewritten in R to faciliate future updates.
 * We now provide annual data.
 * We now provide Quantiles with Reference to Germany as a whole (*Bund*) as well as with Reference to the German States (*Bundesländer*)

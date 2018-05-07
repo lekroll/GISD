@@ -29,4 +29,4 @@ Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health dif
 This work was funded by the Robert Koch Institute ([RKI](https://www.rki.de/EN)). The Robert Koch Institute is a Federal Institute within the portfolio of the Federal Ministry of Health.
 
 ## Last Update
-Date: 26.01.2017, Author: L. E. Kroll
+Date: 26.01.2018, Author: L. E. Kroll

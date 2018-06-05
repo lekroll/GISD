@@ -20,7 +20,8 @@ Lars Eric Kroll, Maria Schumann, Jens Hoebel, Thomas Lampert.Regional health dif
 [Import to Reference Manager](http://edoc.rki.de/docviews/endnote.php?id=5130)
 
 ## Tutorial
-* [Simple Example](Example_1.html) on the Association of GISD and High Speed Internet Access 
+* Simple Example on the Association of [GISD and High Speed Internet Access](Example_1.html)
+* Association of [GISD and community finances (in GERMAN)](Examples/GISD_Gemeindefinanzierung_1998_2014.html)
 
 ## License
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de). 

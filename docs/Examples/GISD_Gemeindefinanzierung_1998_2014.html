@@ -11760,7 +11760,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Working Directory</span>
@@ -11779,28 +11779,6 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>-- Attaching packages --------------------------------------- tidyverse 1.2.1 --
-v ggplot2 2.2.1     v purrr   0.2.4
-v tibble  1.4.2     v dplyr   0.7.4
-v tidyr   0.8.0     v stringr 1.3.0
-v readr   1.1.1     v forcats 0.3.0
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()
-Loading required package: viridisLite
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11814,7 +11792,7 @@ Loading required package: viridisLite
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Finanzen</span>
@@ -11870,7 +11848,7 @@ Gemeindefinanzen <span class="o">&lt;-</span> Gemeindefinanzen <span class="o">%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># GISD in Stata long format dataset</span>
@@ -11924,7 +11902,7 @@ GISD <span class="o">&lt;-</span> read_dta<span class="p">(</span><span class="s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>Comparison <span class="o">&lt;-</span> left_join<span class="p">(</span>Gemeindefinanzen<span class="p">,</span>GISD<span class="p">,</span>by<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Kennziffer_Gemeindeverband&quot;</span><span class="p">,</span><span class="s">&quot;Jahr&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span> filter<span class="p">(</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>GISD_Score<span class="p">))</span>
@@ -11975,7 +11953,7 @@ Comparison <span class="o">&lt;-</span> Comparison <span class="o">%&gt;%</span>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>Comparison <span class="o">%&gt;%</span> count<span class="p">(</span>Jahr<span class="p">)</span> <span class="o">%&gt;%</span> ggplot<span class="p">(</span>aes<span class="p">(</span>x<span class="o">=</span>Jahr<span class="p">,</span>  y<span class="o">=</span>n<span class="p">,</span> fill<span class="o">=</span><span class="s">&quot;Gemeindeverbände&quot;</span><span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span><span class="o">+</span> scale_fill_viridis<span class="p">(</span>discrete<span class="o">=</span><span class="bp">T</span><span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span> 
@@ -12118,7 +12096,7 @@ AElFTkSuQmCC"
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Comparison </span>
@@ -12394,7 +12372,7 @@ VBA0ZlJB0JhJBUFjJhUEjZlU/j+FA9oYSJMQDgAAAABJRU5ErkJggg=="
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>ggplot<span class="p">(</span>Comparison <span class="o">%&gt;%</span> group_by<span class="p">(</span>Jahr<span class="p">)</span> <span class="o">%&gt;%</span> summarise<span class="p">(</span>Korrelation <span class="o">=</span> cor<span class="p">(</span>Steuereinnahmen_pro_EW<span class="p">,</span>GISD_Score<span class="p">)),</span>
@@ -12564,7 +12542,7 @@ U1BoYgoKTUxBoYkpKDQxBYUmpqDQxBQUmpiCQhNT/D9oBldZVMcYMwAAAABJRU5ErkJggg=="
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>ggplot<span class="p">(</span>Comparison <span class="o">%&gt;%</span> group_by<span class="p">(</span>Jahr<span class="p">)</span> <span class="o">%&gt;%</span> summarise<span class="p">(</span>Varianzaufklärung <span class="o">=</span> <span class="p">(</span>cor<span class="p">(</span>Steuereinnahmen_pro_EW<span class="p">,</span>GISD_Score<span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">*</span><span class="m">100</span><span class="p">),</span>
@@ -12721,6 +12699,183 @@ cQWFJq6g0MQVFJq44v8BNGAMgY7BJZAAAAAASUVORK5CYII="
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Vergleich-Einstufung-der-Kreise-nach-Deprivation-und-Steueraufkommen-in-Quintilen">Vergleich Einstufung der Kreise nach Deprivation und Steueraufkommen in Quintilen<a class="anchor-link" href="#Vergleich-Einstufung-der-Kreise-nach-Deprivation-und-Steueraufkommen-in-Quintilen">&#182;</a></h2><p>Der Vergleich wird jährlich durchgeführt. Die Abbildung beschreibt das Gesamtergebnis für den Zeitraum 1998-2014.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>Comparison <span class="o">%&gt;%</span> group_by<span class="p">(</span>Jahr<span class="p">)</span> <span class="o">%&gt;%</span> 
+mutate<span class="p">(</span>GISD_q5<span class="o">=</span>ntile<span class="p">(</span>GISD_Score<span class="p">,</span> <span class="m">5</span><span class="p">),</span>Steuer_q5<span class="o">=</span>ntile<span class="p">(</span>Steuereinnahmen_pro_EW<span class="p">,</span> <span class="m">5</span><span class="p">))</span> <span class="o">%&gt;%</span>
+group_by<span class="p">(</span>GISD_q5<span class="p">,</span>Steuer_q5<span class="p">)</span> <span class="o">%&gt;%</span> 
+count<span class="p">()</span> <span class="o">%&gt;%</span> 
+group_by<span class="p">(</span>GISD_q5<span class="p">)</span> <span class="o">%&gt;%</span> 
+mutate<span class="p">(</span>n<span class="o">=</span><span class="m">100</span><span class="o">*</span>n<span class="o">/</span><span class="kp">sum</span><span class="p">(</span>n<span class="p">))</span> <span class="o">%&gt;%</span> 
+ggplot<span class="p">(</span>aes<span class="p">(</span>x<span class="o">=</span>GISD_q5<span class="p">,</span>y<span class="o">=</span>n<span class="p">,</span>
+           label<span class="o">=</span><span class="kp">floor</span><span class="p">(</span>n<span class="o">*</span><span class="m">10</span><span class="p">)</span><span class="o">/</span><span class="m">10</span><span class="p">,</span>fill<span class="o">=</span><span class="kp">as.character</span><span class="p">(</span>Steuer_q5<span class="p">)))</span> <span class="o">+</span> 
+geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span> 
+scale_fill_viridis<span class="p">(</span>discrete<span class="o">=</span><span class="bp">T</span><span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span> 
+geom_text<span class="p">(</span>pos<span class="o">=</span><span class="s">&quot;stack&quot;</span><span class="p">,</span>vjust<span class="o">=</span><span class="m">1</span><span class="p">,</span>color<span class="o">=</span><span class="s">&quot;White&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">3.5</span><span class="p">)</span> <span class="o">+</span>
+labs<span class="p">(</span>x<span class="o">=</span><span class="s">&quot;Quintile Deprivation (GISD)&quot;</span><span class="p">,</span>y<span class="o">=</span><span class="s">&quot;Anteil&quot;</span><span class="p">,</span>fill<span class="o">=</span><span class="s">&quot;Quintile\nSteuereinnahmen&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+VvwfIUW9Ra1zT0AAAAAASUVORK5CYII="
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Fazit">Fazit<a class="anchor-link" href="#Fazit">&#182;</a></h1><p>Zwischen den Steuereinnahmen der Gemeindeverbände und der über den GISD approximierten Sozialstruktur der Gemeinden besteht ein starker Zusammenhang, allerdings ist die Varianzaufklärung der Gemeindefinanzen durch den GISD nur mäßig. Gründe dafür dass GISD die Steuereinnahmen nicht besser erklärt sind etwa:</p>
 <ul>
 <li><p><strong>Konjunktureffekte</strong></p>
@@ -12735,19 +12890,6 @@ cQWFJq6g0MQVFJq44v8BNGAMgY7BJZAAAAAASUVORK5CYII="
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>

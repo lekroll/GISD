@@ -11760,7 +11760,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Working Directory</span>
@@ -11779,6 +11779,28 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>-- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+v ggplot2 2.2.1     v purrr   0.2.4
+v tibble  1.4.2     v dplyr   0.7.4
+v tidyr   0.8.0     v stringr 1.3.0
+v readr   1.1.1     v forcats 0.3.0
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Loading required package: viridisLite
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11792,7 +11814,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Finanzen</span>
@@ -11848,7 +11870,7 @@ Gemeindefinanzen <span class="o">&lt;-</span> Gemeindefinanzen <span class="o">%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># GISD in Stata long format dataset</span>
@@ -11902,7 +11924,7 @@ GISD <span class="o">&lt;-</span> read_dta<span class="p">(</span><span class="s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>Comparison <span class="o">&lt;-</span> left_join<span class="p">(</span>Gemeindefinanzen<span class="p">,</span>GISD<span class="p">,</span>by<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Kennziffer_Gemeindeverband&quot;</span><span class="p">,</span><span class="s">&quot;Jahr&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span> filter<span class="p">(</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>GISD_Score<span class="p">))</span>
@@ -11947,6 +11969,130 @@ Comparison <span class="o">&lt;-</span> Comparison <span class="o">%&gt;%</span>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Vergleich-von-GISD-und-Gemeindefinanzen">Vergleich von GISD und Gemeindefinanzen<a class="anchor-link" href="#Vergleich-von-GISD-und-Gemeindefinanzen">&#182;</a></h1><p>Im Folgenden erfolgt zuerst ein graphischer und anschließend ein regressionsbasierter Vergleich.</p>
+<h3 id="Datenbasis">Datenbasis<a class="anchor-link" href="#Datenbasis">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>ggplot<span class="p">(</span>Comparison<span class="p">,</span>aes<span class="p">(</span>x<span class="o">=</span>Jahr<span class="p">,</span>  fill<span class="o">=</span><span class="s">&quot;Gemeindeverbände&quot;</span><span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">()</span><span class="o">+</span> scale_fill_viridis<span class="p">(</span>discrete<span class="o">=</span><span class="bp">T</span><span class="p">)</span> <span class="o">+</span> theme_minimal<span class="p">()</span> <span class="o">+</span> 
+scale_y_continuous<span class="p">(</span>limits<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">5000</span><span class="p">))</span> <span class="o">+</span> labs<span class="p">(</span>title<span class="o">=</span><span class="s">&quot;Anzahl&quot;</span><span class="p">,</span>y<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>x<span class="o">=</span><span class="s">&quot;Jahr&quot;</span><span class="p">,</span> fill<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAGVCAMAAADg9DbsAAAANlBMVEUAAABEAVRNTU1oaGh8
+fHyMjIyampqnp6eysrK9vb3Hx8fQ0NDZ2dnh4eHp6enr6+vw8PD////2ChxsAAAACXBIWXMA
+ABJ0AAASdAHeZh94AAAP50lEQVR4nO2c62Lbxg4G9zBybFduar7/yx7drQtBESRAfbuZ+SHK
+MBZLBFOWkhKVHqAhyqtPACAShIamQGhoCoSGpkBoaAqEhqZAaGgKhIamQGhoCoSGpggWuivd
+9K3L0FOAJcSatC2lbCdvjdAQTqxJb+W9vE3eGqEhnFCTvsuv/lf5nro1QkM4oSZ9lM/+s3wc
+C5f+vSu/toenJ/bx91+lbL5OGZ/d8TlCQxChJnW7q/P36WXhTtuDxNtbobtyju7Cvw/PvxAa
+wog0aXu4f/59fFlYSvfVf7+Vzfm3m/3Tj8P1++MQ3WVsTxkIDUFEmvR2UPmodX+8Cn9fVD34
+fL7DPkSvMhAaggg06Xyz0R2kPTl6VnVzuVT/u/3YnIS+ZCA0BBFo0sflXnl/W3Ej9PfF58/u
+cjuN0BBPoEndRej9lfpa6D9deT/mfO5eK77/8wehIYk4k7aXj1Tejm9tHOuXa59399Dnd+wQ
+GjKIM+nt6OqOr73aP7pe+XyKbhEakggzaf8p4Zn9exk/ul75vPvN587nDqEhiTCTPq7+VtJ2
+97LwR9fLrXU53EOXu09TEBoCCTOp625/GBZ6/y5H9/tre3tTgtAQBSZBUyA0NAVCQ1MgNDQF
+QkNTIDQ0BUJDUyA0NAVCQ1MgNDRFptD//SUrKzvdBY1WAEIvX1nZ6SL0XOqaFkI3AUIvX1nZ
+6SL0XOqaFkI3AUIvX1nZ6SL0XOqaFkI3AUIvX1nZ6SL0XOqaFkI3AUIvX1nZ6f71Qnd7Tsd+
+4GhS17QQugmmCH116B6PNnVNC6GbAKGXr6zsdP92obvrI0KrbIrQw0wQ+nwL3fdjQv8HdZGi
+0+uZeIUeEJkr9Es35Qo9zMS37RBabVOEHgahl6+s7HT/dqG55ZDcFKGHmSb0hBeFA9Q1LYRu
+gomfFI4dTeqaFkI3AX+XY/nKyk4XoedS17QQugkQevnKyk4XoedS17QQugkQevnKyk4XoedS
+17QQugkQevnKyk4XoedS17QQugkQevnKyk4XoedS17QQugkQevnKyk4XoedS17QQugkQevnK
+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
+QmCC"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Graphisch">Graphisch<a class="anchor-link" href="#Graphisch">&#182;</a></h3>
 </div>
 </div>

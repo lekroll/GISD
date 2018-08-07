@@ -16,6 +16,7 @@ GISD was updated for 2018 as of 25.01.2018. The Reference Date for all Regional 
 * We now provide annual data.
 * We now provide Quantiles with Reference to Germany as a whole (*Bund*) as well as with Reference to the German States (*Bundesländer*)
 * Postcodes habe been removed, but may be added in a future update.
+* The index scores were rescaled from 0-100 to 0-1 to faciliate computation in some use cases.
 
 ## Contents
 * **Bund** GISD for levels Gemeinde (values are based on Gemeindeverband), Gemeindeverband, Kreis, Raumordnungsregion, NUTS2

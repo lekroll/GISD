@@ -5,100 +5,97 @@
 # source("http://raw.githubusercontent.com/lekroll/R/master/files/r_rki_setup.R")
 
 # Working Directory
-mypath <- "C:/Users/krolll/Desktop/GISD"
+mypath <- "P:/Daten/github/GISD"
 setwd(mypath)
-dir.create("Data/SHP")
-setwd("Data/SHP")
+
+tempdata <- tempdir()
 
 ## Libraries
 library("RCurl") # fetch data
-library("rgdal") # load/save shp-files
-library("rgeos") # union
 library("tidyverse") # data manipulation
-library("maptools")  # join Polygons
+library("sf") # simple features fp
 
 ## Download and Prepare Data and Tools
 #=====================================
 # Download SHP for Germany on "Gemeinde" level
-download.file("http://www.geodatenzentrum.de/auftrag1/archiv/vektor/vg250_ebenen/2014/vg250-ew_2014-12-31.geo89.shape.ebenen.zip","vg250.zip", method="libcurl", mode = "wb")
-unzip("vg250.zip", junkpaths = T , files=c("vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.cpg",
+download.file("http://www.geodatenzentrum.de/auftrag1/archiv/vektor/vg250_ebenen/2014/vg250-ew_2014-12-31.geo89.shape.ebenen.zip",paste0(tempdata,"vg250.zip"), method="libcurl", mode = "wb")
+unzip(paste0(tempdata,"vg250.zip"), exdir=tempdata, junkpaths = T , files=c("vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.cpg",
                                                       "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.dbf",
                                                       "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.prj",
                                                       "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shp",
                                                       "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shx"))
-file.remove("vg250.zip")
+GEM  <- st_read(paste0(tempdata,"/VG250_GEM.shp"))
+file.remove(paste0(tempdata,c("/VG250_GEM.shp","/VG250_GEM.dbf","/VG250_GEM.prj","/VG250_GEM.shx","/VG250_GEM.cpg")), showWarnings=F)
+save("GEM", file="Data/SHP/GEM20141231.RData", compression_level=9)
 
-## Download Planet File for Germany
-### This step may be problematic, depending on server load
+
+# Download Planet File for Germany
+# This step may take a while (up to 1h), depending on server load, but in the end, the huge approx. 3 GB file will be loaded
 download.file("http://ftp5.gwdg.de/pub/misc/openstreetmap/download.geofabrik.de/germany-latest.osm.pbf",
-               method="libcurl",destfile="germany-latest.osm.pbf", mode = "wb")
+               method="libcurl",cacheOK = FALSE, destfile=paste0(tempdata,"/germany-latest.osm.pbf"), mode = "wb")
 
-## Download binary OSM-Tools for Windows
-download.file("http://m.m.i24.cc/osmconvert64.exe", destfile = "osmconvert64.exe" ,  method="libcurl", mode = "wb")
-download.file("http://m.m.i24.cc/osmfilter.exe", destfile = "osmfilter.exe" , method="libcurl", mode = "wb")
+# Download binary OSM-Tools for Windows
+download.file("http://m.m.i24.cc/osmconvert64.exe", destfile = paste0(tempdata,"/osmconvert64.exe") ,  method="libcurl", mode = "wb")
+download.file("http://m.m.i24.cc/osmfilter.exe", destfile = paste0(tempdata,"/osmfilter.exe") , method="libcurl", mode = "wb")
 
 # Convert Planet-File to filter-friendly o5m-format
-system("osmconvert64.exe germany-latest.osm.pbf  --drop-author --drop-version --out-o5m -o=germany-latest.o5m")
-file.remove('germany-latest.osm.pbf')
+system(paste0(tempdata,"/osmconvert64.exe ", tempdata,"/germany-latest.osm.pbf  --drop-author --drop-version --out-o5m -o=", tempdata,"/germany-latest.o5m"))
+file.remove(paste0(tempdata,'/germany-latest.osm.pbf'))
 
 # Extract Features from OSM
 #==========================
-# ZIP-Codes
-system2("osmfilter.exe",args = c('germany-latest.o5m' ,'--keep=\"boundary=postal_code\"', '--drop-author', '--drop-version', '--out-osm'), stdout='Germany_zipcodes.osm')
-system2("osmconvert64.exe" , args=c("Germany_zipcodes.osm", "--drop-author" ,"--drop-version" ,"-o=Germany_zipcodes.osm.pbf"))
-file.remove("Germany_zipcodes.osm")
-file.remove("germany-latest.o5m")
+# Convert OSM and read as sf dataset
+system2(paste0(tempdata,"/osmfilter.exe"),args = c(paste0(tempdata,'/germany-latest.o5m') ,'--keep=\"boundary=postal_code\"', '--drop-author', '--drop-version', '--out-osm'), stdout=paste0(tempdata,'/Germany_zipcodes.osm'))
+system2(paste0(tempdata,"/osmconvert64.exe") , args=c(paste0(tempdata,"/Germany_zipcodes.osm"), "--drop-author" ,"--drop-version" ,paste0("-o=",tempdata,"/Germany_zipcodes.osm.pbf")))
+file.remove(paste0(tempdata,"/Germany_zipcodes.osm"))
+file.remove(paste0(tempdata,"/germany-latest.o5m"))
+zipcodes <- st_read(paste0(tempdata,"/Germany_zipcodes.osm.pbf"), layer='multipolygons')
+file.remove(paste0(tempdata,"/osmconvert64.exe"))
+file.remove(paste0(tempdata,"/osmfilter.exe"))
 
-### ZIP-Codes 5 digits
-zipcodes <- readOGR("Germany_zipcodes.osm.pbf", 'multipolygons')
-file.remove("Germany_zipcodes.osm.pbf")
-zipcodes <- zipcodes[!is.na(zipcodes$osm_id),] 
-zipcodes@data$PLZ5 <- str_split(zipcodes@data$other_tags, ",",simplify = T)
-zipcodes@data$PLZ5 <- apply(zipcodes@data$PLZ5, 1, function(x) unlist(regmatches(x, gregexpr("^\"postal_code\".*",  x))))
-zipcodes@data$PLZ5 <- apply(as.data.frame(zipcodes@data$PLZ5), 1, function(x) as.numeric(regmatches(x, gregexpr("[[:digit:]]+",  x))))
-zipcodes@data <- zipcodes@data %>% select(PLZ5) 
-writeOGR(zipcodes, ".", "PLZ5", driver="ESRI Shapefile",overwrite_layer=TRUE)
+### ZIP-Codes 1-5 digits
+zipcodes <- zipcodes %>% filter(!is.na(osm_id))
+zipcodes$PLZ5 <- str_split(zipcodes$other_tags, ",",simplify = T)
+zipcodes$PLZ5 <- apply(zipcodes$PLZ5, 1, function(x) unlist(regmatches(x, gregexpr("^\"postal_code\".*",  x))))
+zipcodes$PLZ5 <- apply(as.data.frame(zipcodes$PLZ5), 1, function(x) as.numeric(regmatches(x, gregexpr("[[:digit:]]+",  x))))
+zipcodes  <- zipcodes %>% select(PLZ5) %>%
+  mutate(PLZ4= floor(PLZ5/10),
+         PLZ3= floor(PLZ4/10),
+         PLZ2= floor(PLZ3/10),
+         PLZ1= floor(PLZ2/10))
+save("zipcodes", file="Data/SHP/zipcodes.RData", compression_level=9)
 
-# HIERWEITER!
+# Combine Zipcodes and Areas
+#===========================
 
-### ZIP-Codes 4 digits
-zipcodes@data$PLZ4 <- floor(zipcodes@data$PLZ5/10)
-PLZ4 <- gUnaryUnion(zipcodes, id=zipcodes@data$PLZ4)
-rm(zipcodes)
-zipcode_ids <- data.frame(ID=sapply(slot(PLZ4, "polygons"), function(x) slot(x, "ID")))
-zipcode_df <- over(PLZ4,zipcodes)
-rownames(zipcode_df) <- zipcode_ids$ID
-PLZ4 <- SpatialPolygonsDataFrame(PLZ4,zipcode_df)
-PLZ4@data <- PLZ4@data %>% select(PLZ4) 
-writeOGR(PLZ4, ".", "PLZ4", driver="ESRI Shapefile",overwrite_layer=TRUE)
+PLZ5  <- readOGR(dsn = "Data/SHP" ,layer = "PLZ5" )
+GEM <- spTransform(GEM, PLZ5@proj4string)
 
-### ZIP-Codes 3 digits
-PLZ4@data$PLZ3 <- floor(PLZ4@data$PLZ4/10)
-PLZ3 <- gUnaryUnion(PLZ4, id=PLZ4@data$PLZ3)
-zipcode_ids <- data.frame(ID=sapply(slot(PLZ3, "polygons"), function(x) slot(x, "ID")))
-zipcode_df <- over(PLZ3,PLZ4)
-rownames(zipcode_df) <- zipcode_ids$ID
-PLZ3 <- SpatialPolygonsDataFrame(PLZ3,zipcode_df)
-PLZ3@data <- PLZ3@data %>% select(PLZ3) 
-writeOGR(PLZ3, ".", "PLZ3", driver="ESRI Shapefile",overwrite_layer=TRUE)
+# Intersect ZIP-CODES and 'Gemeinden'
+GEM_EWZ <-GEM[as.numeric(as.character(GEM$EWZ))>0,]
+GEM_EWZ$Bula <- floor(as.numeric(as.character(GEM_EWZ$AGS))/1000000)
+PLZ_to_GEM <- raster::intersect(GEM_EWZ[GEM_EWZ$Bula==1,],PLZ5)
 
-### ZIP-Codes 2 digits
-zipcodes@data$PLZ2 <- floor(zipcodes@data$PLZ5/1000)
-PLZ2 <- gUnaryUnion(zipcodes, id=zipcodes@data$PLZ2)
-zipcode_ids <- data.frame(ID=sapply(slot(PLZ2, "polygons"), function(x) slot(x, "ID")))
-zipcode_df <- over(PLZ2,zipcodes)
-rownames(zipcode_df) <- zipcode_ids$ID
-PLZ2 <- SpatialPolygonsDataFrame(PLZ2,zipcode_df)
-PLZ2@data <- PLZ2@data %>% select(PLZ2) 
-writeOGR(PLZ2, ".", "PLZ2", driver="ESRI Shapefile",overwrite_layer=TRUE)
+for (i in 2:max(GEM_EWZ$Bula)) {
+  cat("\r","ID= ",i," ")
+  result <- raster::intersect(GEM_EWZ[GEM_EWZ$Bula==i,],PLZ5)
+  PLZ_to_GEM <- rbind(PLZ_to_GEM,result)
+}
 
-### ZIP-Codes 1 digit
-zipcodes@data$PLZ1 <- floor(zipcodes@data$PLZ5/10000)
-PLZ1 <- gUnaryUnion(zipcodes, id=zipcodes@data$PLZ1)
-zipcode_ids <- data.frame(ID=sapply(slot(PLZ1, "polygons"), function(x) slot(x, "ID")))
-zipcode_df <- over(PLZ1,zipcodes)
-rownames(zipcode_df) <- zipcode_ids$ID
-PLZ1 <- SpatialPolygonsDataFrame(PLZ1,zipcode_df)
-rm(zipcode_ids,zipcode_df)
-PLZ1@data <- PLZ1@data %>% select(PLZ1) 
-writeOGR(PLZ1, ".", "PLZ1", driver="ESRI Shapefile",overwrite_layer=TRUE)
+PLZ_to_GEM$id <- 1:nrow(PLZ_to_GEM@data)
+PLZ_to_GEM$Area_Polygon <- raster::area(PLZ_to_GEM)/1000
+PLZ_to_GEM$EWZ <- as.numeric(as.character(PLZ_to_GEM$EWZ))
+PLZ_to_GEM@data <- PLZ_to_GEM@data %>% group_by(AGS) %>% mutate(Area_Pct = Area_Polygon/sum(Area_Polygon))
+PLZ_to_GEM@data <- PLZ_to_GEM@data %>% group_by(AGS) %>% mutate(EW_Area = round(Area_Pct*EWZ))
+PLZ_to_GEM$PLZ4 <- substr(PLZ_to_GEM$PLZ5,1,4)
+PLZ_to_GEM$PLZ3 <- substr(PLZ_to_GEM$PLZ5,1,3)
+PLZ_to_GEM$PLZ2 <- substr(PLZ_to_GEM$PLZ5,1,2)
+PLZ_to_GEM$PLZ1 <- substr(PLZ_to_GEM$PLZ5,1,1)
+PLZ.df <- PLZ_to_GEM@data %>% dplyr::select(AGS,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ"))
+names(PLZ.df)[1] <- "Gemeindekennziffer"
+names(PLZ.df)[5] <- "Bevölkerung"
+PLZ.df$Gemeindekennziffer <-as.numeric(as.character(PLZ.df$Gemeindekennziffer))
+PLZ.df <- PLZ.df %>% ungroup()
+save(PLZ.df, file="Data/Referenz/Zuspieldatensatz_PLZ_AGS.RData")
+head(PLZ.df)
+rm(PLZ_to_GEM)

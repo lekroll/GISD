@@ -11,9 +11,7 @@ require("tidyverse") # Tidyverse Methods
 require("readxl") # Read Excel
 require("imputeTS") # Impute Missing Features
 require("haven") # write Stata-dta
-require("rgeos") # intersection
-require("rgdal") # read-shapefiles, transform Projections
-require("raster") # shape file intersections
+require("sf") # write Stata-dta
 
 
 # Working Directory
@@ -85,41 +83,7 @@ listofdeterminants <- names(Basedata)[3:length(Basedata)]
 Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschäftigtenquote,Einkommenssteuer)
 Basedata_Kreisebene <- Basedata %>% dplyr::select(-Arbeitslosigkeit,-Beschäftigtenquote,-Einkommenssteuer)
 
-# load ZIPCode Shapefile
-GEM  <- readOGR(dsn = "Data/SHP" ,layer = "VG250_GEM" )
-GEM@data$GEN <- iconv(GEM@data$GEN, "UTF-8", "WINDOWS-1252")
-GEM@data$BEM <- iconv(GEM@data$BEM, "UTF-8", "WINDOWS-1252")
-PLZ5  <- readOGR(dsn = "Data/SHP" ,layer = "PLZ5" )
-GEM <- spTransform(GEM, PLZ5@proj4string)
-
-# Intersect ZIP-CODES and 'Gemeinden'
-GEM_EWZ <-GEM[as.numeric(as.character(GEM$EWZ))>0,]
-GEM_EWZ$Bula <- floor(as.numeric(as.character(GEM_EWZ$AGS))/1000000)
-PLZ_to_GEM <- raster::intersect(GEM_EWZ[GEM_EWZ$Bula==1,],PLZ5)
-
-for (i in 2:max(GEM_EWZ$Bula)) {
-  cat("\r","ID= ",i," ")
-  result <- raster::intersect(GEM_EWZ[GEM_EWZ$Bula==i,],PLZ5)
-  PLZ_to_GEM <- rbind(PLZ_to_GEM,result)
-  }
-
-PLZ_to_GEM$id <- 1:nrow(PLZ_to_GEM@data)
-PLZ_to_GEM$Area_Polygon <- raster::area(PLZ_to_GEM)/1000
-PLZ_to_GEM$EWZ <- as.numeric(as.character(PLZ_to_GEM$EWZ))
-PLZ_to_GEM@data <- PLZ_to_GEM@data %>% group_by(AGS) %>% mutate(Area_Pct = Area_Polygon/sum(Area_Polygon))
-PLZ_to_GEM@data <- PLZ_to_GEM@data %>% group_by(AGS) %>% mutate(EW_Area = round(Area_Pct*EWZ))
-PLZ_to_GEM$PLZ4 <- substr(PLZ_to_GEM$PLZ5,1,4)
-PLZ_to_GEM$PLZ3 <- substr(PLZ_to_GEM$PLZ5,1,3)
-PLZ_to_GEM$PLZ2 <- substr(PLZ_to_GEM$PLZ5,1,2)
-PLZ_to_GEM$PLZ1 <- substr(PLZ_to_GEM$PLZ5,1,1)
-PLZ.df <- PLZ_to_GEM@data %>% dplyr::select(AGS,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ"))
-names(PLZ.df)[1] <- "Gemeindekennziffer"
-names(PLZ.df)[5] <- "Bevölkerung"
-PLZ.df$Gemeindekennziffer <-as.numeric(as.character(PLZ.df$Gemeindekennziffer))
-PLZ.df <- PLZ.df %>% ungroup()
-save(PLZ.df, file="Data/Referenz/Zuspieldatensatz_PLZ_AGS.RData")
-head(PLZ.df)
-rm(PLZ_to_GEM)
+# hier ausgeschnitten intersection # 
 
 # Join different levels
 Basedata <- as.data.frame(expand.grid(Gemeindekennziffer=Referenz_1998_2014$Gemeindekennziffer,Jahr=seq(min(Basedata$Jahr):max(Basedata$Jahr))+min(Basedata$Jahr)-1))

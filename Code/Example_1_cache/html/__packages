@@ -1,0 +1,13 @@
+base
+leaflet
+sp
+rgdal
+readr
+dplyr
+ggplot2
+ggmap
+stargazer
+RColorBrewer
+raster
+classInt
+bindrcpp

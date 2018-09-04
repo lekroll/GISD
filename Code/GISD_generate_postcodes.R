@@ -8,16 +8,18 @@
 mypath <- "P:/Daten/github/GISD"
 setwd(mypath)
 
-tempdata <- tempdir()
-
 ## Libraries
 library("RCurl") # fetch data
 library("tidyverse") # data manipulation
 library("sf") # simple features fp
+library("rmapshaper") # simplify shapefiles
 
 ## Download and Prepare Data and Tools
 #=====================================
+tempdata <- tempdir()
+
 # Download SHP for Germany on "Gemeinde" level
+#===============================================
 download.file("http://www.geodatenzentrum.de/auftrag1/archiv/vektor/vg250_ebenen/2014/vg250-ew_2014-12-31.geo89.shape.ebenen.zip",paste0(tempdata,"vg250.zip"), method="libcurl", mode = "wb")
 unzip(paste0(tempdata,"vg250.zip"), exdir=tempdata, junkpaths = T , files=c("vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.cpg",
                                                       "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.dbf",
@@ -29,7 +31,8 @@ file.remove(paste0(tempdata,c("/VG250_GEM.shp","/VG250_GEM.dbf","/VG250_GEM.prj"
 save("GEM", file="Data/SHP/GEM20141231.RData", compression_level=9)
 
 
-# Download Planet File for Germany
+# Download OSM Planet File for Germany
+#=====================================
 # This step may take a while (up to 1h), depending on server load, but in the end, the huge approx. 3 GB file will be loaded
 download.file("http://ftp5.gwdg.de/pub/misc/openstreetmap/download.geofabrik.de/germany-latest.osm.pbf",
                method="libcurl",cacheOK = FALSE, destfile=paste0(tempdata,"/germany-latest.osm.pbf"), mode = "wb")
@@ -63,39 +66,36 @@ zipcodes  <- zipcodes %>% select(PLZ5) %>%
          PLZ3= floor(PLZ4/10),
          PLZ2= floor(PLZ3/10),
          PLZ1= floor(PLZ2/10))
+zicodes_small <- ms_simplify(zipcodes, keep=.1 , keep_shapes=T)
+zipcodes <- zicodes_small
+rm(zicodes_small)
 save("zipcodes", file="Data/SHP/zipcodes.RData", compression_level=9)
 
 # Combine Zipcodes and Areas
 #===========================
+load("Data/SHP/GEM20141231.RData")
+load("Data/SHP/zipcodes.RData")
 
-PLZ5  <- readOGR(dsn = "Data/SHP" ,layer = "PLZ5" )
-GEM <- spTransform(GEM, PLZ5@proj4string)
+# Recode
+GEM <- GEM %>% mutate(GEM_EWZ=as.numeric(as.character(EWZ))>0,
+               Bula= floor(as.numeric(as.character(AGS))/1000000))
+# Set CRS
+st_crs(zipcodes)
+st_crs(GEM)
+zipcodes <- st_transform(zipcodes,st_crs(GEM))
+st_crs(zipcodes)
 
-# Intersect ZIP-CODES and 'Gemeinden'
-GEM_EWZ <-GEM[as.numeric(as.character(GEM$EWZ))>0,]
-GEM_EWZ$Bula <- floor(as.numeric(as.character(GEM_EWZ$AGS))/1000000)
-PLZ_to_GEM <- raster::intersect(GEM_EWZ[GEM_EWZ$Bula==1,],PLZ5)
+# Intersect Communities with Postcodes
+PLZ.df <- st_intersection(GEM,zipcodes)
 
-for (i in 2:max(GEM_EWZ$Bula)) {
-  cat("\r","ID= ",i," ")
-  result <- raster::intersect(GEM_EWZ[GEM_EWZ$Bula==i,],PLZ5)
-  PLZ_to_GEM <- rbind(PLZ_to_GEM,result)
-}
+# Fill Intersection Area equally with all inhabitants by community
+PLZ.df <- PLZ.df %>% mutate(Area_Polygon=as.numeric(st_area(.))) %>% 
+              group_by(AGS) %>% 
+              mutate(Area_Pct = Area_Polygon/sum(Area_Polygon),
+                     EW_Area  = round(Area_Pct*EWZ)) %>% 
+              dplyr::select(AGS,GEN,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ"))
+save(PLZ.df, file="Data/SHP/GEM_Zipcode_Intersections.RData", compression_level=9)
 
-PLZ_to_GEM$id <- 1:nrow(PLZ_to_GEM@data)
-PLZ_to_GEM$Area_Polygon <- raster::area(PLZ_to_GEM)/1000
-PLZ_to_GEM$EWZ <- as.numeric(as.character(PLZ_to_GEM$EWZ))
-PLZ_to_GEM@data <- PLZ_to_GEM@data %>% group_by(AGS) %>% mutate(Area_Pct = Area_Polygon/sum(Area_Polygon))
-PLZ_to_GEM@data <- PLZ_to_GEM@data %>% group_by(AGS) %>% mutate(EW_Area = round(Area_Pct*EWZ))
-PLZ_to_GEM$PLZ4 <- substr(PLZ_to_GEM$PLZ5,1,4)
-PLZ_to_GEM$PLZ3 <- substr(PLZ_to_GEM$PLZ5,1,3)
-PLZ_to_GEM$PLZ2 <- substr(PLZ_to_GEM$PLZ5,1,2)
-PLZ_to_GEM$PLZ1 <- substr(PLZ_to_GEM$PLZ5,1,1)
-PLZ.df <- PLZ_to_GEM@data %>% dplyr::select(AGS,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ"))
-names(PLZ.df)[1] <- "Gemeindekennziffer"
-names(PLZ.df)[5] <- "Bevölkerung"
-PLZ.df$Gemeindekennziffer <-as.numeric(as.character(PLZ.df$Gemeindekennziffer))
-PLZ.df <- PLZ.df %>% ungroup()
-save(PLZ.df, file="Data/Referenz/Zuspieldatensatz_PLZ_AGS.RData")
-head(PLZ.df)
-rm(PLZ_to_GEM)
+# Remove Copyright protected file GEM
+file.remove("Data/SHP/GEM20141231.RData")
+

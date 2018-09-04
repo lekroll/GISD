@@ -3,8 +3,8 @@
 # Citation: Kroll LE, Schumann M, Hoebel J et al. (2017) Regional health differences â€“ developing a socioeconomic deprivation 
 #           index for Germany. Journal of Health Monitoring 2(2):98â€“114. DOI 10.17886/RKI-GBE-2017-048ISSN 2511-2708
 
-# Revision: 2018.v2
-# Date: 2018-03-22
+# Revision: 2018.v3
+# Date: 2018-09-04
 
 # Librarys
 require("tidyverse") # Tidyverse Methods
@@ -15,7 +15,7 @@ require("sf") # write Stata-dta
 
 
 # Working Directory
-mypath <- "C:/Users/krolll/Desktop/GISD"
+mypath <- "P:/Daten/github/GISD"
 setwd(mypath)
 
 # Create Output directories if necessary
@@ -76,14 +76,13 @@ for(file in inputdataset){
   Basedata <- full_join(Basedata,myimport,by=c("Kennziffer","Jahr"))
   rm(indicator,myimport,file)
   }
-rm(inputdataset)
+rm(inputdataset) 
+
 
 # Manual separation of data and levels
 listofdeterminants <- names(Basedata)[3:length(Basedata)]
-Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschäftigtenquote,Einkommenssteuer)
-Basedata_Kreisebene <- Basedata %>% dplyr::select(-Arbeitslosigkeit,-Beschäftigtenquote,-Einkommenssteuer)
-
-# hier ausgeschnitten intersection # 
+Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer)
+Basedata_Kreisebene <- Basedata %>% dplyr::select(-Arbeitslosigkeit,-Beschaeftigtenquote,-Einkommenssteuer)
 
 # Join different levels
 Basedata <- as.data.frame(expand.grid(Gemeindekennziffer=Referenz_1998_2014$Gemeindekennziffer,Jahr=seq(min(Basedata$Jahr):max(Basedata$Jahr))+min(Basedata$Jahr)-1))
@@ -96,11 +95,8 @@ rm(Basedata_Gemeindeverbandsebene,Basedata_Kreisebene,Referenz_1998_2014)
 # Change  Storage Types
 Basedata[, 13:length(Basedata)] <- sapply(Basedata[, 13:length(Basedata)], as.numeric)
 
-# z-Standardisierung
-# Basedata[, 14:length(Basedata)] <- sapply(Basedata[, 14:length(Basedata)], scale)
-
-# Fehlende Werte imputieren
-summary(Basedata[, 13:length(Basedata)])[7,] # Anzahl der NA pro Variable
+# Impute Missing Values
+summary(Basedata[, 13:length(Basedata)])[7,] 
 
 # Imputation
 imputationsliste <- subset(listofdeterminants , !(listofdeterminants %in% c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
@@ -125,7 +121,7 @@ Impdata <- as.data.frame(Impdata)
 
 # Faktorenanalyse
 print(listofdeterminants)
-TS_Arbeitswelt <- Impdata %>% dplyr::select(Arbeitslosigkeit,Beschäftigtenquote,Bruttoverdienst) 
+TS_Arbeitswelt <- Impdata %>% dplyr::select(Arbeitslosigkeit,Beschaeftigtenquote,Bruttoverdienst) 
 TS_Einkommen   <- Impdata %>% dplyr::select(Einkommenssteuer,Haushaltseinkommen,Schuldnerquote) 
 TS_Bildung     <- Impdata %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
 
@@ -147,7 +143,7 @@ colnames(GISD_Komponents) <- c("Variable","Dimension","Anteil","Score")
 GISD_Komponents$GISD <- "GISD"
 GISD_Komponents$Richtung <- ifelse(as.numeric(as.character(GISD_Komponents$Score))<0,"negative","positive")
 GISD_Komponents$Anteil <- round(as.numeric(as.character(GISD_Komponents$Anteil))*100,digits=1)
-save(GISD_Komponents, file="Data/Other/GISD_Komponents.RData")
+save(GISD_Komponents, file="Data/Other/GISD_Komponents_2018.RData")
 
 # Prediction and normalization
 Resultdataset <- Impdata
@@ -272,7 +268,14 @@ for(mykennziffer in exportlist$Kennziffern) {
 }
 
 
-# Ausgabe auf PLZ-Ebene 
+# Output Postcode Data
+load("Data/SHP/GEM_Zipcode_Intersections.RData") # AGS/Postcode-Intersections-Dataset in sf format
+
+
+# For testing
+mykennziffer <- "PLZ4"
+
+
 for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   myname <-  paste0(mykennziffer)
   mylabel<-  paste0(mykennziffer)
@@ -280,15 +283,16 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   
   # Datensatzerstellung # weighted.mean fehlt wg. Fehler Evaluation error: 'x' and 'w' must have the same length
   outputdata <- Resultdataset 
-  outputdata <- outputdata %>% dplyr::select(Gemeindekennziffer,Jahr,GISD_Score)
-  outputdata <- left_join(PLZ.df,outputdata,by=c("Gemeindekennziffer"), all.x = TRUE)
-  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(Bevölkerung) & !is.na(Jahr) & Bevölkerung>0)
+  outputdata <- outputdata %>% dplyr::select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
+  outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
+                          outputdata,by=c("AGS"), all.x = TRUE)
+  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
   mycol <- which(mykennziffer %in% names(outputdata))
-  outputdata <- outputdata %>% group_by(Jahr,Gemeindekennziffer) 
-  outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,Bevölkerung))
+  outputdata <- outputdata %>% group_by(Jahr,AGS) 
+  outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,EW_Area))
   names(outputdata)[names(outputdata)=="Jahr"]<- "JAHR" # Seltsames Problem Name "Jahr"
   outputdata <- outputdata %>% group_by_at(vars("JAHR",mykennziffer)) %>% 
-    summarise(GISD_Score = weighted.mean(GISD_Score,Bevölkerung), Bevölkerung = sum(Bevölkerung)) %>%
+    summarise(GISD_Score = weighted.mean(GISD_Score,EW_Area), Bevölkerung = sum(EW_Area)) %>%
     group_by(JAHR)
   
   outputdata <- outputdata %>%  mutate(GISD_Score = round((GISD_Score - min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6)) # Normalize to 0/1 

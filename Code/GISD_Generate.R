@@ -1,10 +1,15 @@
 # GISD - German Index of Socio-Economic Deprivation
 # Author: Lars Eric Kroll, Robert Koch Institut, Berlin
-# Citation: Kroll LE, Schumann M, Hoebel J et al. (2017) Regional health differences – developing a socioeconomic deprivation 
-#           index for Germany. Journal of Health Monitoring 2(2):98–114. DOI 10.17886/RKI-GBE-2017-048ISSN 2511-2708
+# Citation: Kroll LE, Schumann M, Hoebel J et al. (2017) Regional health differences - developing a socioeconomic deprivation 
+#           index for Germany. Journal of Health Monitoring 2(2):98-114. DOI 10.17886/RKI-GBE-2017-048ISSN 2511-2708
 
 # Revision: 2018.v3
 # Date: 2018-09-04
+
+# SOP for Revision
+# 1. Obtain new Data and Reference Files from INKAR (manually) -> check format
+# 2. Change Year in GISD_generate_postcodes.R according to INKAR Regional Date and execute
+# 3. Execute GISD_Generate.R (there should be no edits required)
 
 # Librarys
 require("tidyverse") # Tidyverse Methods
@@ -14,14 +19,11 @@ require("haven") # write Stata-dta
 require("sf") # write Stata-dta
 
 
-# Working Directory
-mypath <- "P:/Daten/github/GISD"
-setwd(mypath)
-
-# Create Output directories if necessary
+# Create Output directories in working directoryif necessary
 dir.create("Revisions")
 dir.create("Revisions/2018")
 dir.create("Revisions/2018/Bund")
+dir.create("Revisions/2018/Other")
 
 # Import data
 Referenz_1998_2014 <- read_excel("Data/Referenz/Referenz_1998_2014.xlsx", sheet = "Gemeinden", na = "NA", skip = 1)
@@ -57,32 +59,29 @@ Kreise_1998_2014$Kreiskennziffer <- Kreise_1998_2014$Kreiskennziffer/1000
 
 # Create Basedataset
 # all levels of input will be added, Kreise is just a starting point.
-Basedata    <- as.data.frame(Kreise_1998_2014$Kreiskennziffer) 
-names(Basedata)[1] <- "Kennziffer"
-Basedata$Jahr <- 2014
+Basedata    <- Kreise_1998_2014 %>% select(Kennziffer=Kreiskennziffer) %>% mutate(Jahr=2014)
 
 # Load INKAR datasets
 inputdataset <- list.files("Data/INKAR_1998_2014")
+
+# for testing file<-inputdataset[1]
 for(file in inputdataset){
   myimport <- read_excel(paste0("Data/INKAR_1998_2014/",file), skip = 1, sheet = "Daten", col_types = c("text"))
-  indicator  <- unlist(strsplit(unlist(strsplit(file,"_"))[2],"[.]"))[1]
   names(myimport)[1] <- "Kennziffer"
+  myimport[3] <- NULL
   myimport[2] <- NULL
-  names(myimport[2]) <- "Art"
-  myimport[2] <- NULL
-  myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"Kennziffer", convert=T, na.rm = T)
-  names(myimport)[3] <- indicator
-  myimport$Kennziffer<-as.numeric(myimport$Kennziffer)
+  myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"Kennziffer", convert=T, na.rm = T) %>%
+    mutate(Kennziffer=as.numeric(as.character(Kennziffer)), Value=as.numeric(Value)) 
+  names(myimport)[3] <- unlist(strsplit(unlist(strsplit(file,"_"))[2],"[.]"))[1]
   Basedata <- full_join(Basedata,myimport,by=c("Kennziffer","Jahr"))
-  rm(indicator,myimport,file)
   }
 rm(inputdataset) 
-
+names(Basedata)
 
 # Manual separation of data and levels
 listofdeterminants <- names(Basedata)[3:length(Basedata)]
 Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer)
-Basedata_Kreisebene <- Basedata %>% dplyr::select(-Arbeitslosigkeit,-Beschaeftigtenquote,-Einkommenssteuer)
+Basedata_Kreisebene <- Basedata %>% dplyr::select(-Arbeitslosigkeit,-Einkommenssteuer,-Beschaeftigtenquote)
 
 # Join different levels
 Basedata <- as.data.frame(expand.grid(Gemeindekennziffer=Referenz_1998_2014$Gemeindekennziffer,Jahr=seq(min(Basedata$Jahr):max(Basedata$Jahr))+min(Basedata$Jahr)-1))
@@ -92,36 +91,34 @@ Basedata <- left_join(Basedata,Basedata_Kreisebene,by=c("Kreiskennziffer"="Kennz
 Basedata <- left_join(Basedata,Basedata_Gemeindeverbandsebene,by=c("Kennziffer Gemeindeverband"="Kennziffer","Jahr"))
 rm(Basedata_Gemeindeverbandsebene,Basedata_Kreisebene,Referenz_1998_2014)
 
-# Change  Storage Types
-Basedata[, 13:length(Basedata)] <- sapply(Basedata[, 13:length(Basedata)], as.numeric)
-
 # Impute Missing Values
-summary(Basedata[, 13:length(Basedata)])[7,] 
+summary(Basedata %>% select(listofdeterminants))
 
+
+# HIERWEITER: Problem mit TEMP-Variablen in Imputation
 # Imputation
 imputationsliste <- subset(listofdeterminants , !(listofdeterminants %in% c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
 Impdata <-  Basedata %>% dplyr::filter(Jahr>=1998, Bev�lkerung>0)
-summary(Impdata)[7,]
+summary(Impdata %>% select(listofdeterminants))
 
 for(determinant in imputationsliste) {
   print(paste(determinant))
   Impdata$temp <- Impdata[[determinant]]
   Impdata <- Impdata %>% group_by(Gemeindekennziffer) %>% arrange(Gemeindekennziffer, Jahr) %>% mutate(temp_MEAN = mean(temp, na.rm=T))
-  imp.model <- lm(temp ~  I(Jahr*Jahr*temp_MEAN)+I(Jahr*temp_MEAN) + Arbeitslosigkeit + SchulabgaengerohneAbschluss , data = Impdata , na.action="na.exclude")
+  imp.model <- lm(temp ~  I(Jahr*Jahr*temp_MEAN)+I(Jahr*temp_MEAN) + Arbeitslosigkeit + SchulabgaengerohneAbschluss + SchulabgaengermitHochschulreife, data = Impdata , na.action="na.exclude")
   summary(imp.model)
   Impdata$temp <- predict(imp.model, newdata =Impdata )
   Impdata[[determinant]][is.na(Impdata[[determinant]])] <-  Impdata$temp[is.na(Impdata[[determinant]])]
-  Impdata$temp <- NULL
-  Impdata$temp_MEAN <- NULL
+  Impdata <- as.tibble(Impdata) %>% select(-temp, -"temp_MEAN")
 }
 
 # Ergebnis
-summary(Impdata)
-Impdata <- as.data.frame(Impdata)
+summary(as.data.frame(Impdata) %>% ungroup()  %>% select(listofdeterminants))
+Impdata <- Impdata %>%  ungroup()
 
 # Faktorenanalyse
 print(listofdeterminants)
-TS_Arbeitswelt <- Impdata %>% dplyr::select(Arbeitslosigkeit,Beschaeftigtenquote,Bruttoverdienst) 
+TS_Arbeitswelt <- Impdata %>% dplyr::select(Arbeitslosigkeit,Bruttoverdienst) 
 TS_Einkommen   <- Impdata %>% dplyr::select(Einkommenssteuer,Haushaltseinkommen,Schuldnerquote) 
 TS_Bildung     <- Impdata %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
 
@@ -141,9 +138,9 @@ GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as
 rownames(GISD_Komponents) <- NULL
 colnames(GISD_Komponents) <- c("Variable","Dimension","Anteil","Score")
 GISD_Komponents$GISD <- "GISD"
-GISD_Komponents$Richtung <- ifelse(as.numeric(as.character(GISD_Komponents$Score))<0,"negative","positive")
-GISD_Komponents$Anteil <- round(as.numeric(as.character(GISD_Komponents$Anteil))*100,digits=1)
-save(GISD_Komponents, file="Data/Other/GISD_Komponents_2018.RData")
+GISD_Komponents$Direction <- ifelse(as.numeric(as.character(GISD_Komponents$Score))<0,"negative","positive")
+GISD_Komponents$Proportion <- round(as.numeric(as.character(GISD_Komponents$Anteil))*100,digits=1)
+save(GISD_Komponents, file="Revisions/2018/Other/GISD_Komponents_2018.RData")
 
 # Prediction and normalization
 Resultdataset <- Impdata

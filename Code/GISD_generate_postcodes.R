@@ -28,8 +28,6 @@ unzip(paste0(tempdata,"vg250.zip"), exdir=tempdata, junkpaths = T , files=c("vg2
                                                       "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shx"))
 GEM  <- st_read(paste0(tempdata,"/VG250_GEM.shp"))
 file.remove(paste0(tempdata,c("/VG250_GEM.shp","/VG250_GEM.dbf","/VG250_GEM.prj","/VG250_GEM.shx","/VG250_GEM.cpg")), showWarnings=F)
-save("GEM", file="Data/SHP/GEM20141231.RData", compression_level=9)
-
 
 # Download OSM Planet File for Germany
 #=====================================
@@ -47,33 +45,32 @@ file.remove(paste0(tempdata,'/germany-latest.osm.pbf'))
 
 # Extract Features from OSM
 #==========================
-# Convert OSM and read as sf dataset
-system2(paste0(tempdata,"/osmfilter.exe"),args = c(paste0(tempdata,'/germany-latest.o5m') ,'--keep=\"boundary=postal_code\"', '--drop-author', '--drop-version', '--out-osm'), stdout=paste0(tempdata,'/Germany_zipcodes.osm'))
-system2(paste0(tempdata,"/osmconvert64.exe") , args=c(paste0(tempdata,"/Germany_zipcodes.osm"), "--drop-author" ,"--drop-version" ,paste0("-o=",tempdata,"/Germany_zipcodes.osm.pbf")))
-file.remove(paste0(tempdata,"/Germany_zipcodes.osm"))
-file.remove(paste0(tempdata,"/germany-latest.o5m"))
-zipcodes <- st_read(paste0(tempdata,"/Germany_zipcodes.osm.pbf"), layer='multipolygons')
-file.remove(paste0(tempdata,"/osmconvert64.exe"))
-file.remove(paste0(tempdata,"/osmfilter.exe"))
-
-### ZIP-Codes 1-5 digits
-zipcodes <- zipcodes %>% filter(!is.na(osm_id))
-zipcodes$PLZ5 <- str_split(zipcodes$other_tags, ",",simplify = T)
-zipcodes$PLZ5 <- apply(zipcodes$PLZ5, 1, function(x) unlist(regmatches(x, gregexpr("^\"postal_code\".*",  x))))
-zipcodes$PLZ5 <- apply(as.data.frame(zipcodes$PLZ5), 1, function(x) as.numeric(regmatches(x, gregexpr("[[:digit:]]+",  x))))
-zipcodes  <- zipcodes %>% select(PLZ5) %>%
-  mutate(PLZ4= floor(PLZ5/10),
-         PLZ3= floor(PLZ4/10),
-         PLZ2= floor(PLZ3/10),
-         PLZ1= floor(PLZ2/10))
-zicodes_small <- ms_simplify(zipcodes, keep=.1 , keep_shapes=T)
-zipcodes <- zicodes_small
-rm(zicodes_small)
-save("zipcodes", file="Data/SHP/zipcodes.RData", compression_level=9)
+# # Convert OSM and read as sf dataset
+# system2(paste0(tempdata,"/osmfilter.exe"),args = c(paste0(tempdata,'/germany-latest.o5m') ,'--keep=\"boundary=postal_code\"', '--drop-author', '--drop-version', '--out-osm'), stdout=paste0(tempdata,'/Germany_zipcodes.osm'))
+# system2(paste0(tempdata,"/osmconvert64.exe") , args=c(paste0(tempdata,"/Germany_zipcodes.osm"), "--drop-author" ,"--drop-version" ,paste0("-o=",tempdata,"/Germany_zipcodes.osm.pbf")))
+# file.remove(paste0(tempdata,"/Germany_zipcodes.osm"))
+# file.remove(paste0(tempdata,"/germany-latest.o5m"))
+# zipcodes <- st_read(paste0(tempdata,"/Germany_zipcodes.osm.pbf"), layer='multipolygons')
+# file.remove(paste0(tempdata,"/osmconvert64.exe"))
+# file.remove(paste0(tempdata,"/osmfilter.exe"))
+# 
+# ### ZIP-Codes 1-5 digits
+# zipcodes <- zipcodes %>% filter(!is.na(osm_id))
+# zipcodes$PLZ5 <- str_split(zipcodes$other_tags, ",",simplify = T)
+# zipcodes$PLZ5 <- apply(zipcodes$PLZ5, 1, function(x) unlist(regmatches(x, gregexpr("^\"postal_code\".*",  x))))
+# zipcodes$PLZ5 <- apply(as.data.frame(zipcodes$PLZ5), 1, function(x) as.numeric(regmatches(x, gregexpr("[[:digit:]]+",  x))))
+# zipcodes  <- zipcodes %>% select(PLZ5) %>%
+#   mutate(PLZ4= floor(PLZ5/10),
+#          PLZ3= floor(PLZ4/10),
+#          PLZ2= floor(PLZ3/10),
+#          PLZ1= floor(PLZ2/10))
+# zicodes_small <- ms_simplify(zipcodes, keep=.1 , keep_shapes=T)
+# zipcodes <- zicodes_small
+# rm(zicodes_small)
+# save("zipcodes", file="Data/SHP/zipcodes.RData", compression_level=9)
 
 # Combine Zipcodes and Areas
 #===========================
-load("Data/SHP/GEM20141231.RData")
 load("Data/SHP/zipcodes.RData")
 
 # Recode
@@ -93,9 +90,8 @@ PLZ.df <- PLZ.df %>% mutate(Area_Polygon=as.numeric(st_area(.))) %>%
               group_by(AGS) %>% 
               mutate(Area_Pct = Area_Polygon/sum(Area_Polygon),
                      EW_Area  = round(Area_Pct*EWZ)) %>% 
-              dplyr::select(AGS,GEN,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ"))
+              dplyr::select(AGS,GEN,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ")) %>%  st_set_geometry(NULL)
+
 save(PLZ.df, file="Data/SHP/GEM_Zipcode_Intersections.RData", compression_level=9)
 
-# Remove Copyright protected file GEM
-file.remove("Data/SHP/GEM20141231.RData")
 

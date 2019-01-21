@@ -4,7 +4,7 @@ title: Info on GISD Revision 2019
 ---
 [<back](index)
 
-GISD was updated for 2018 as of 21.01.2019. The Reference Date for all Regional Definitions ("Gebietsstand") is 31.12.2015. The update includes data for Years 1998 to 2015. The Reference Paper can be accessed [here](http://edoc.rki.de/docviews/abstract.php?lang=ger&id=5130).
+GISD was updated for 2019 as of 21.01.2019. The Reference Date for all Regional Definitions ("Gebietsstand") is 31.12.2015. The update includes data for Years 1998 to 2015. The Reference Paper can be accessed [here](http://edoc.rki.de/docviews/abstract.php?lang=ger&id=5130).
 
 ## Changes
 * Minor code changes in comparison to Revision 2018.

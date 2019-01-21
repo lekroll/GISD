@@ -4,10 +4,6 @@
 # source("http://raw.githubusercontent.com/lekroll/R/master/files/r_install.R")
 # source("http://raw.githubusercontent.com/lekroll/R/master/files/r_rki_setup.R")
 
-# Working Directory
-mypath <- "P:/Daten/github/GISD"
-setwd(mypath)
-
 ## Libraries
 library("RCurl") # fetch data
 library("tidyverse") # data manipulation
@@ -20,28 +16,30 @@ tempdata <- tempdir()
 
 # Download SHP for Germany on "Gemeinde" level
 #===============================================
-download.file("http://www.geodatenzentrum.de/auftrag1/archiv/vektor/vg250_ebenen/2014/vg250-ew_2014-12-31.geo89.shape.ebenen.zip",paste0(tempdata,"vg250.zip"), method="libcurl", mode = "wb")
-unzip(paste0(tempdata,"vg250.zip"), exdir=tempdata, junkpaths = T , files=c("vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.cpg",
-                                                      "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.dbf",
-                                                      "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.prj",
-                                                      "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shp",
-                                                      "vg250-ew_2014-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shx"))
+# Here Jahr has to be changed:
+download.file("http://www.geodatenzentrum.de/auftrag1/archiv/vektor/vg250_ebenen/2015/vg250-ew_2015-12-31.geo89.shape.ebenen.zip",paste0(tempdata,"vg250.zip"), method="libcurl", mode = "wb")
+unzip(paste0(tempdata,"vg250.zip"), exdir=tempdata, junkpaths = T , files=
+        c("vg250-ew_2015-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.cpg",
+          "vg250-ew_2015-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.dbf",
+          "vg250-ew_2015-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.prj",
+          "vg250-ew_2015-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shp",
+          "vg250-ew_2015-12-31.geo89.shape.ebenen/vg250-ew_ebenen/VG250_GEM.shx"))
 GEM  <- st_read(paste0(tempdata,"/VG250_GEM.shp"))
 file.remove(paste0(tempdata,c("/VG250_GEM.shp","/VG250_GEM.dbf","/VG250_GEM.prj","/VG250_GEM.shx","/VG250_GEM.cpg")), showWarnings=F)
 
 # Download OSM Planet File for Germany
 #=====================================
-# This step may take a while (up to 1h), depending on server load, but in the end, the huge approx. 3 GB file will be loaded
-download.file("http://ftp5.gwdg.de/pub/misc/openstreetmap/download.geofabrik.de/germany-latest.osm.pbf",
-               method="libcurl",cacheOK = FALSE, destfile=paste0(tempdata,"/germany-latest.osm.pbf"), mode = "wb")
-
-# Download binary OSM-Tools for Windows
-download.file("http://m.m.i24.cc/osmconvert64.exe", destfile = paste0(tempdata,"/osmconvert64.exe") ,  method="libcurl", mode = "wb")
-download.file("http://m.m.i24.cc/osmfilter.exe", destfile = paste0(tempdata,"/osmfilter.exe") , method="libcurl", mode = "wb")
-
-# Convert Planet-File to filter-friendly o5m-format
-system(paste0(tempdata,"/osmconvert64.exe ", tempdata,"/germany-latest.osm.pbf  --drop-author --drop-version --out-o5m -o=", tempdata,"/germany-latest.o5m"))
-file.remove(paste0(tempdata,'/germany-latest.osm.pbf'))
+# # This step may take a while (up to 1h), depending on server load, but in the end, the huge approx. 3 GB file will be loaded
+# download.file("http://ftp5.gwdg.de/pub/misc/openstreetmap/download.geofabrik.de/germany-latest.osm.pbf",
+#                method="libcurl",cacheOK = FALSE, destfile=paste0(tempdata,"/germany-latest.osm.pbf"), mode = "wb")
+# 
+# # Download binary OSM-Tools for Windows
+# download.file("http://m.m.i24.cc/osmconvert64.exe", destfile = paste0(tempdata,"/osmconvert64.exe") ,  method="libcurl", mode = "wb")
+# download.file("http://m.m.i24.cc/osmfilter.exe", destfile = paste0(tempdata,"/osmfilter.exe") , method="libcurl", mode = "wb")
+# 
+# # Convert Planet-File to filter-friendly o5m-format
+# system(paste0(tempdata,"/osmconvert64.exe ", tempdata,"/germany-latest.osm.pbf  --drop-author --drop-version --out-o5m -o=", tempdata,"/germany-latest.o5m"))
+# file.remove(paste0(tempdata,'/germany-latest.osm.pbf'))
 
 # Extract Features from OSM
 #==========================
@@ -92,6 +90,6 @@ PLZ.df <- PLZ.df %>% mutate(Area_Polygon=as.numeric(st_area(.))) %>%
                      EW_Area  = round(Area_Pct*EWZ)) %>% 
               dplyr::select(AGS,GEN,EWZ, Area_Polygon, Area_Pct,EW_Area, contains("PLZ")) %>%  st_set_geometry(NULL)
 
-save(PLZ.df, file="Data/SHP/GEM_Zipcode_Intersections.RData", compression_level=9)
+save(PLZ.df, file="Data/SHP/GEM_Zipcode_Intersections_2015.RData", compression_level=9)
 
 

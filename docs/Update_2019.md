@@ -6,9 +6,10 @@ title: Info on GISD Revision 2019
 
 GISD was updated for 2019 as of 21.01.2019. The Reference Date for all Regional Definitions ("Gebietsstand") is 31.12.2015. The update includes data for Years 1998 to 2015. The Reference Paper can be accessed [here](http://edoc.rki.de/docviews/abstract.php?lang=ger&id=5130).
 
-## Changes
-* Minor code changes in comparison to Revision 2018.
-* Removal of the annual csv in favor of a long-format csv. So filtering is needed but number of files greately reduced.
+## Changes (edited 22.03.2019)
+* Major code changes in comparison to Revision 2018. We incorporated some new methods, especially for Reproducability of Postcode data. Also some new methods regarding the imputation of missing values were introduced. We also changed the Code to use more modern tidyverse based functions.
+* At this point, we think, this will be the last big set of changes in the code base. The next revisions will only contain new input data and will focus on possible bug fixes.
+* Removal of the annual csv in favor of a long-format csv. So filtering is needed but number of files was greately reduced.
 
 ## Contents
 * **Bund** GISD for levels Gemeinde (values are based on Gemeindeverband), Gemeindeverband, Kreis, Raumordnungsregion, NUTS2, PLZ (German Zipcodes)

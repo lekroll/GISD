@@ -8,3 +8,6 @@ Originally the GISD data archive was submitted to [GESIS Datorium](https://dator
 If you need help with GISD please feel free to [contact us](https://www.rki.de/SharedDocs/Kontaktformulare/K/Kroll_Lars_Eric/Integrator.html) or just file an [Issue at GitHub](https://github.com/lekroll/GISD/issues).
 
 For details see the [GISD Homepage](https://lekroll.github.io/GISD).
+
+**Please note:**
+*Currently, we do not advise to use the index Revision 2018 due to a limited comparability with the older revisions that we are investigating.*

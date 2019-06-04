@@ -11,7 +11,7 @@ It is generated at the levels of associations of municipalities, administrative 
 This index is intended for use in research as well as by federal and federal state health reporting systems and should enable access to new sources of data for investigating the links between social inequalities and health in Germany.
 
 ## Available data
-* [GISD Revision (2019)](Update_2019)
+* [GISD Revision (2019)](Update_2019) NOT ADVISED
 * [GISD Revision (2018)](Update_2018)
 * [GISD Revision (2017)](Initial_2017)
 

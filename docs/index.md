@@ -2,7 +2,12 @@ This repository contains data of the The German Index of Socioeconomic Deprivati
 
 Originally the GISD data archive was submitted to [GESIS Datorium](https://datorium.gesis.org/xmlui/handle/10.7802/1460). But as we plan to update GISD anually when new data from [www.inkar.de](http://www.inkar.de) is available, it will be hosted at github.
 
-If you need help with GISD please feel free to [contact us](https://www.rki.de/SharedDocs/Kontaktformulare/L/Lampert_Thomas/Integrator.html) or just file an [Issue at GitHub](https://github.com/lekroll/GISD/issues).
+If you need help with GISD please feel free to contact [FG 28 of RKI](https://www.rki.de/DE/Content/Institut/OrgEinheiten/Abt2/FG28/fg28_node.html) or file an [Issue at GitHub](https://github.com/lekroll/GISD/issues).
+
+For details see the [GISD Homepage](https://lekroll.github.io/GISD).
+
+**Please note:**
+*Currently, we do NOT advise to use the index Revision 2019 due to a limited comparability with the older revisions that we are investigating (with a currently limited capacity)*
 
 ## Background
 The core data stem from the [INKAR](http://www.inkar.de) (indicators and maps on spatial and urban development in Germany and Europe) database compiled by Germanys Federal Institute for Research on Building, Urban Affairs and Spatial Development. Factor analysis is used for indexing and the weighting of indicators for the three dimensions of education, occupation and income. 

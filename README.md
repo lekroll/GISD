@@ -10,4 +10,4 @@ If you need help with GISD please feel free to [contact us](https://www.rki.de/S
 For details see the [GISD Homepage](https://lekroll.github.io/GISD).
 
 **Please note:**
-*Currently, we do not advise to use the index Revision 2018 due to a limited comparability with the older revisions that we are investigating.*
+*Currently, we do NOT advise to use the index Revision 2019 due to a limited comparability with the older revisions that we are investigating.*
